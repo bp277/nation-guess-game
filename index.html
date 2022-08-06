@@ -4,27 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css"  href="css/reset.css" />
+    <link rel="stylesheet" type="text/css"  href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap" rel="stylesheet"> 
     <title>Guess The Nation</title>
   </head>
   <body>
+    <div class="backdrop">
+      <div class="modal">
+        <h1 class="correct-name">Serbia</h1>
+        <img src="https://flagcdn.com/w320/cn.png" alt="" class="correct-flag">
+        <div class="new-game">
+          <button>New Game</button>
+        </div>
+      </div>
+    </div>
+    <div class="backdrop-coa">
+      <div class="modal-coa">
+        <img class="img-coa" width="40%" alt="">
+      </div>
+    </div>
+    <div class="backdrop-flag">
+      <div class="modal-flag">
+        <img class="img-flag" width="40%" alt="">
+      </div>
+    </div>
     <header>
       <h3>How to play</h3>
     </header>
 
     <main>
         <div>
-            <h1>Guess The Nation</h1>
+            <h1 class="title">Guess The Nation</h1>
             <input type="text" name="input" id="input">
             <ul class="search-list">
       
             </ul>
+            <div class="coats-of-arms">
+              <h3 class="coa">Coats of Arms</h3>
+            </div>
+            <div class="hint-flag">
+              <h3>Flag</h3>
+            </div>
+            <div class="legend">
+              <p>Flag</p>
+              <p>Continent</p>
+              <p>Population</p>
+              <p>Size</p>
+              <p>Bordering Countries</p>
+            </div>
+            
         </div>
         <div class="answers">
 
-        </div>
-        <h3></h3>
+          </div>
+        
     </main>
 
     <footer>
