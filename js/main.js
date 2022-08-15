@@ -13,7 +13,7 @@ const correctName = document.querySelector(".correct-name");
 const correctFlag = document.querySelector(".correct-flag");
 const newGame = document.querySelector(".new-game");
 const coatsOfArms = document.querySelector(".coa")
-const hintFlag = document.querySelector(".hint-flag")
+const hintFlag = document.querySelector(".flag-h3")
 const imgCoa = document.querySelector(".img-coa")
 const modalFlag = document.querySelector(".img-flag")
 
@@ -25,6 +25,7 @@ for (let i = 0; i < unMembers.length; i++) {
     unMembers[i].flags.png,
     unMembers[i].name.common,
     unMembers[i].continents,
+    unMembers[i].subregion,
     unMembers[i].population,
     unMembers[i].area,
     unMembers[i].borders == undefined
@@ -70,6 +71,7 @@ function selectCountry(e) {
       new Answer(
         unMembers[i].flags.png,
         unMembers[i].continents[0],
+        unMembers[i].subregion,
         unMembers[i].population,
         unMembers[i].area,
         unMembers[i].borders.length
@@ -78,6 +80,7 @@ function selectCountry(e) {
       createAnswer(
         unMembers[i].flags.png,
         unMembers[i].continents[0],
+        unMembers[i].subregion,
         unMembers[i].population
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
@@ -107,7 +110,7 @@ if (searchList) {
 }
 //Creating and appending the answer
 
-function createAnswer(flg, cont, pop, siz, bord) {
+function createAnswer(flg, cont, subreg, pop, siz, bord) {
   const answer = document.createElement("div");
   answer.classList.add("answer");
   answers.appendChild(answer);
@@ -118,8 +121,8 @@ function createAnswer(flg, cont, pop, siz, bord) {
   const flagImg = document.createElement("img");
   flag.appendChild(flagImg);
   flagImg.src = flg;
-  flagImg.setAttribute("width", "50%");
-  flagImg.setAttribute("height", "50%");
+  flagImg.setAttribute("width", "68px");
+  flagImg.setAttribute("height", "45px");
 
   const continent = document.createElement("div");
   continent.classList.add("continent");
@@ -127,6 +130,13 @@ function createAnswer(flg, cont, pop, siz, bord) {
   const continentPara = document.createElement("p");
   continent.appendChild(continentPara);
   continentPara.textContent = cont;
+
+  const subregion = document.createElement("div");
+  subregion.classList.add("subregion");
+  answer.appendChild(subregion);
+  const subregionPara = document.createElement("p");
+  subregion.appendChild(subregionPara);
+  subregionPara.textContent = subreg;
 
   const population = document.createElement("div");
   population.classList.add("population");
@@ -157,33 +167,36 @@ function createAnswer(flg, cont, pop, siz, bord) {
   if (continentPara.innerHTML === correctAnswer[2][0]) {
     continent.classList.add("success");
   }
+  if (subregionPara.innerHTML === correctAnswer[3]) {
+    subregion.classList.add("success");
+  }
   if (
-    parseFloat(populationPara.innerHTML.replace(/,/g, "")) < correctAnswer[3]
+    parseFloat(populationPara.innerHTML.replace(/,/g, "")) < correctAnswer[4]
   ) {
     population.classList.add("higher");
   } else if (
-    parseFloat(populationPara.innerHTML.replace(/,/g, "")) > correctAnswer[3]
+    parseFloat(populationPara.innerHTML.replace(/,/g, "")) > correctAnswer[4]
   ) {
     population.classList.add("lower");
   } else if (
-    parseFloat(populationPara.innerHTML.replace(/,/g, "")) == correctAnswer[3]
+    parseFloat(populationPara.innerHTML.replace(/,/g, "")) == correctAnswer[4]
   ) {
     population.classList.add("success");
   }
-  if (parseFloat(sizePara.innerHTML.replace(/,/g, "")) < correctAnswer[4]) {
+  if (parseFloat(sizePara.innerHTML.replace(/,/g, "")) < correctAnswer[5]) {
     size.classList.add("higher");
   } else if (
-    parseFloat(sizePara.innerHTML.replace(/,/g, "")) > correctAnswer[4]
+    parseFloat(sizePara.innerHTML.replace(/,/g, "")) > correctAnswer[5]
   ) {
     size.classList.add("lower");
-  } else if (parseFloat(sizePara.innerHTML.replace(/,/g, "")) == correctAnswer[4]) {
+  } else if (parseFloat(sizePara.innerHTML.replace(/,/g, "")) == correctAnswer[5]) {
     size.classList.add("success");
   }
-  if (parseInt(bordersPara.innerHTML) > correctAnswer[5].length) {
+  if (parseInt(bordersPara.innerHTML) > correctAnswer[6].length) {
     borders.classList.add("lower");
-  } else if (parseInt(bordersPara.innerHTML) < correctAnswer[5].length) {
+  } else if (parseInt(bordersPara.innerHTML) < correctAnswer[6].length) {
     borders.classList.add("higher");
-  } else if (parseInt(bordersPara.innerHTML) == correctAnswer[5].length) {
+  } else if (parseInt(bordersPara.innerHTML) == correctAnswer[6].length) {
     borders.classList.add("success");
   }
 }
@@ -203,6 +216,7 @@ backdropFlag.addEventListener("click", () => {
 })
 
 let correctAnswer = countryInfo[Math.floor(Math.random() * countryInfo.length)];
-imgCoa.src = correctAnswer[6];
+imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
 
+console.log(correctAnswer)

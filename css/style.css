@@ -1,10 +1,15 @@
 .search-list li:nth-of-type(1n + 5) {
   display: none;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: rgb(231, 231, 231);
 }
-.backdrop, .backdrop-coa, .backdrop-flag {
+.backdrop,
+.backdrop-coa,
+.backdrop-flag {
   z-index: 1000;
   position: absolute;
   width: 99.1vw;
@@ -14,7 +19,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-.backdrop .modal, .backdrop-coa .modal-coa, .backdrop-flag .modal-flag {
+.backdrop .modal,
+.backdrop-coa .modal-coa,
+.backdrop-flag .modal-flag {
   background-color: #ade8f4;
   width: 400px;
   height: 500px;
@@ -76,25 +83,27 @@ main input {
   border-radius: 10px;
   border: none;
   margin-bottom: 20px;
-  font-size: 28px
+  font-size: 28px;
 }
 main input:focus {
   border: 1px solid rgb(36, 156, 30);
   box-shadow: 5px 5px 15px 5px rgba(92, 92, 92, 0.25);
 }
-.hint-flag, .coats-of-arms {
-    display: grid;
-    place-items: center;
+.hint-flag,
+.coats-of-arms {
+  display: grid;
+  place-items: center;
 }
-.coa, .hint-flag h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 24px;
-    margin-block: 35px;
-    text-decoration: underline;
-    cursor: pointer;
-    color: #26cbe8;
-    font-weight: 700;
-    width: 15%;
+.coa,
+.flag-h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  margin-block: 35px;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #26cbe8;
+  font-weight: 700;
+  width: fit-content;
 }
 .search-list {
   width: 30%;
@@ -115,11 +124,12 @@ main input:focus {
 .answers {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 .answer,
 .legend {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -127,15 +137,17 @@ main input:focus {
   margin-bottom: 20px;
 }
 .legend {
-    font-family: 'Montserrat', sans-serif;
-    padding: 15px 5px;
-    border-bottom: 2px solid #48cae4
+  font-family: "Montserrat", sans-serif;
+  padding: 15px 5px;
+  border-bottom: 2px solid #48cae4;
+  margin: 0 auto;
 }
 .answer {
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
   box-shadow: 5px 5px 15px 5px rgba(92, 92, 92, 0.25);
 }
 .continent,
+.subregion,
 .population,
 .size,
 .borders {
@@ -158,6 +170,16 @@ main input:focus {
 .lower {
   background-color: #f5d743;
 }
+.lower::after {
+  content: "↓";
+  font-size: 28px;
+  margin-bottom: 5px;
+}
 .higher {
   background-color: #f54f43;
+}
+.higher::after {
+  content: "↑";
+  font-size: 28px;
+  margin-bottom: 5px;
 }
