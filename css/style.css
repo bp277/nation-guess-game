@@ -36,6 +36,8 @@ body {
   border: 3px solid #a5c9ca;
   border-radius: 10px;
   text-align: center;
+  position: absolute;
+  top: 150px;
 }
 .tutorial-modal h2 {
   font-size: 30px;
@@ -174,7 +176,8 @@ main input:focus {
 .subregion,
 .population,
 .size,
-.borders {
+.borders,
+.flag {
   width: 100%;
   height: 100%;
   display: flex;
@@ -257,22 +260,27 @@ main input:focus {
     margin-bottom: 20px;
     font-size: 20px;
   }
-  .coa, .flag-h3 {
+  .coa,
+  .flag-h3 {
     font-size: 20px;
   }
   .flag img {
     width: 50px;
     height: 35px;
   }
-}
-@media (min-width: 250px) {
-  .tutorial-modal {
-    width: 80%;
+  .backdrop-coa .modal-coa, .backdrop-flag .modal-flag {
+    width: 350px;
+    height: 450px;
   }
-  .htp {
-    font-size: 18px;
-  }
-  .title {
-    font-size: 24px;
+  @media (min-width: 250px) {
+    .tutorial-modal {
+      width: 80%;
+    }
+    .htp {
+      font-size: 18px;
+    }
+    .title {
+      font-size: 24px;
+    }
   }
 }
