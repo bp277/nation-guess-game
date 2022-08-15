@@ -44,6 +44,8 @@ body {
   text-align: center;
   margin-bottom: 30px;
   color: #a5c9ca;
+  font-weight: 500;
+
 }
 .tutorial-modal {
   text-align: start;
@@ -53,6 +55,7 @@ body {
   border: 3px solid #a5c9ca;
   border-radius: 10px;
   color: #e7f6f2;
+  font-weight: 300;
   width: 30%;
   position: absolute;
   top: 150px;
@@ -126,7 +129,7 @@ main input:focus {
 .flag-h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
-  margin-block: 35px;
+  margin-block: 20px;
   text-decoration: underline;
   cursor: pointer;
   color: #a5c9ca;
@@ -242,7 +245,7 @@ main input:focus {
     font-size: 12px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 425px) {
   .list-item {
     font-size: 14px;
   }
@@ -251,7 +254,7 @@ main input:focus {
   .population,
   .size,
   .borders {
-    font-size: 9px;
+    font-size: 8px;
   }
   .legend {
     font-size: 9px;
