@@ -240,5 +240,3 @@ modalFlag.src = correctAnswer[0];
 let data = localStorage.getItem("myAnswers");
 answers.innerHTML = data;
 
-console.log(correctAnswer);
-
