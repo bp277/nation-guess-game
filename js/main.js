@@ -227,5 +227,3 @@ backdropFlag.addEventListener("click", () => {
 let correctAnswer = countryInfo[Math.floor(Math.random() * countryInfo.length)];
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
-
-console.log(correctAnswer)
