@@ -21,8 +21,10 @@ const coatsOfArms = document.querySelector(".coa");
 const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
+const guess = document.querySelector(".guess");
 
 let id = null;
+let guessNumber = 0;
 
 let countryInfo = [];
 
@@ -96,20 +98,18 @@ function selectCountry(e) {
       );
 
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
-      if (
-        e.target.innerHTML === correctAnswer[1] 
-      ) {
+      if (e.target.innerHTML === correctAnswer[1]) {
         backdrop.style.display = "flex";
-        status.textContent = "You Win"
+        status.textContent = "You Win";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
-        input.disabled = true
+        input.disabled = true;
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        status.textContent = "Game Over"
+        status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
-        input.disabled = true
+        input.disabled = true;
       }
     }
     input.value = "";
@@ -225,6 +225,11 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
   }
   localStorage.setItem("myAnswers", answers.innerHTML);
   newGameUI.style.display = "block";
+
+  localStorage.setItem("guessNum", answers.childNodes.length);
+  input.placeholder = `${answers.childNodes.length} of 8`
+
+  console.log(answers.childNodes.length);
 }
 //Show How to play
 howToPlay.addEventListener("click", () => {
@@ -250,13 +255,18 @@ backdrop.addEventListener("click", () => {
   backdrop.style.display = "none";
 });
 
-let correctAnswer =  JSON.parse(localStorage.getItem("correctAnswer")) || countryInfo[Math.floor(Math.random() * countryInfo.length)];
+let correctAnswer =
+  JSON.parse(localStorage.getItem("correctAnswer")) ||
+  countryInfo[Math.floor(Math.random() * countryInfo.length)];
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
 
 let data = localStorage.getItem("myAnswers");
+let guessData = localStorage.getItem("guessNum")
+input.placeholder = `${guessData ? guessData : 0} of 8`;
+
 
 answers.innerHTML = data;
 
-console.log(correctAnswer)
+console.log(correctAnswer);

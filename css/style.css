@@ -120,6 +120,9 @@ main input:focus {
   border: 1px solid rgb(36, 156, 30);
   box-shadow: 5px 5px 15px 5px rgba(92, 92, 92, 0.25);
 }
+.guess {
+  color: #fff;
+}
 .hint-flag,
 .coats-of-arms {
   display: grid;
