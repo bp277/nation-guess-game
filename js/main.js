@@ -13,6 +13,7 @@ const howToPlay = document.querySelector(".htp");
 const backdropTutorial = document.querySelector(".backdrop-tutorial");
 const modalTutorial = document.querySelector(".tutorial-modal");
 const correctName = document.querySelector(".correct-name");
+const status = document.querySelector(".status");
 const correctFlag = document.querySelector(".correct-flag");
 const newGame = document.querySelector(".new-game");
 const newGameUI = document.querySelector(".new-game-ui");
@@ -96,10 +97,16 @@ function selectCountry(e) {
 
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (
-        e.target.innerHTML === correctAnswer[1] ||
-        answers.childNodes.length == 8
+        e.target.innerHTML === correctAnswer[1] 
       ) {
         backdrop.style.display = "flex";
+        status.textContent = "You Win"
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
+        input.disabled = true
+      } else if (answers.childNodes.length == 8) {
+        backdrop.style.display = "flex";
+        status.textContent = "Game Over"
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true
