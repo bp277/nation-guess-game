@@ -45,7 +45,6 @@ body {
   margin-bottom: 30px;
   color: #a5c9ca;
   font-weight: 500;
-
 }
 .tutorial-modal {
   text-align: start;
@@ -71,7 +70,8 @@ body {
 .new-game-ui {
   display: none;
 }
-.new-game button, .new-game-ui button {
+.new-game button,
+.new-game-ui button {
   padding: 10px;
   width: 150px;
   border: none;
@@ -90,7 +90,8 @@ header {
   padding: 20px;
   background: #395b64;
 }
-header h3, .status {
+header h3,
+.status {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
@@ -173,8 +174,7 @@ main input:focus {
 .answer,
 .legend {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr;
+grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));  grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   place-items: center;
@@ -300,6 +300,16 @@ main input:focus {
     }
     .title {
       font-size: 24px;
+    }
+    .continent,
+    .subregion,
+    .population,
+    .size,
+    .borders {
+      font-size: 8px;
+    }
+    .legend {
+      font-size: 9px;
     }
   }
 }
