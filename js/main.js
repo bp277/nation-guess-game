@@ -9,20 +9,21 @@ const listItem = document.querySelector(".list-item");
 const backdrop = document.querySelector(".backdrop");
 const backdropCoa = document.querySelector(".backdrop-coa");
 const backdropFlag = document.querySelector(".backdrop-flag");
-const howToPlay = document.querySelector(".htp")
+const howToPlay = document.querySelector(".htp");
 const backdropTutorial = document.querySelector(".backdrop-tutorial");
 const modalTutorial = document.querySelector(".tutorial-modal");
 const correctName = document.querySelector(".correct-name");
 const correctFlag = document.querySelector(".correct-flag");
 const newGame = document.querySelector(".new-game");
-const coatsOfArms = document.querySelector(".coa")
-const hintFlag = document.querySelector(".flag-h3")
-const imgCoa = document.querySelector(".img-coa")
-const modalFlag = document.querySelector(".img-flag")
+const coatsOfArms = document.querySelector(".coa");
+const hintFlag = document.querySelector(".flag-h3");
+const imgCoa = document.querySelector(".img-coa");
+const modalFlag = document.querySelector(".img-flag");
 
-
+let id = null;
 
 let countryInfo = [];
+
 for (let i = 0; i < unMembers.length; i++) {
   countryInfo.push([
     unMembers[i].flags.png,
@@ -34,7 +35,7 @@ for (let i = 0; i < unMembers.length; i++) {
     unMembers[i].borders == undefined
       ? (unMembers[i].borders = [])
       : unMembers[i].borders,
-    unMembers[i].coatOfArms.png
+    unMembers[i].coatOfArms.png,
   ]);
 }
 
@@ -87,7 +88,8 @@ function selectCountry(e) {
         unMembers[i].population
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-        unMembers[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " km²",
+        unMembers[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+          " km²",
         unMembers[i].borders.length
       );
 
@@ -106,7 +108,11 @@ function selectCountry(e) {
     searchList.innerHTML = "";
   }
 }
-newGame.addEventListener("click", () => location.reload());
+newGame.addEventListener("click", () => {
+  location.reload();
+  id = null;
+  localStorage.clear();
+});
 
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
@@ -116,6 +122,7 @@ if (searchList) {
 function createAnswer(flg, cont, subreg, pop, siz, bord) {
   const answer = document.createElement("div");
   answer.classList.add("answer");
+  answer.setAttribute("id", id++ + 1);
   answers.appendChild(answer);
 
   const flag = document.createElement("div");
@@ -162,10 +169,8 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
   borders.appendChild(bordersPara);
   bordersPara.textContent = bord;
 
-
-
-  if (flagImg.src == correctAnswer[0]){
-    flag.classList.add("success")
+  if (flagImg.src == correctAnswer[0]) {
+    flag.classList.add("success");
   }
   if (continentPara.innerHTML === correctAnswer[2][0]) {
     continent.classList.add("success");
@@ -192,7 +197,9 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
     parseFloat(sizePara.innerHTML.replace(/,/g, "")) > correctAnswer[5]
   ) {
     size.classList.add("lower");
-  } else if (parseFloat(sizePara.innerHTML.replace(/,/g, "")) == correctAnswer[5]) {
+  } else if (
+    parseFloat(sizePara.innerHTML.replace(/,/g, "")) == correctAnswer[5]
+  ) {
     size.classList.add("success");
   }
   if (parseInt(bordersPara.innerHTML) > correctAnswer[6].length) {
@@ -202,28 +209,36 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
   } else if (parseInt(bordersPara.innerHTML) == correctAnswer[6].length) {
     borders.classList.add("success");
   }
+  localStorage.setItem("myAnswers", answers.innerHTML);
 }
 //Show How to play
 howToPlay.addEventListener("click", () => {
-  backdropTutorial.style.display = "flex"
-})
+  backdropTutorial.style.display = "flex";
+});
 backdropTutorial.addEventListener("click", () => {
-  backdropTutorial.style.display = "none"
-})//Show Coats Of Arms
+  backdropTutorial.style.display = "none";
+}); //Show Coats Of Arms
 coatsOfArms.addEventListener("click", () => {
-  backdropCoa.style.display = "flex"
-})
+  backdropCoa.style.display = "flex";
+});
 backdropCoa.addEventListener("click", () => {
-  backdropCoa.style.display = "none"
-})
+  backdropCoa.style.display = "none";
+});
 //Show Flag
 hintFlag.addEventListener("click", () => {
-  backdropFlag.style.display = "flex"
-})
+  backdropFlag.style.display = "flex";
+});
 backdropFlag.addEventListener("click", () => {
-  backdropFlag.style.display = "none"
-})
+  backdropFlag.style.display = "none";
+});
 
-let correctAnswer = countryInfo[Math.floor(Math.random() * countryInfo.length)];
+let correctAnswer =  JSON.parse(localStorage.getItem("correctAnswer")) || countryInfo[Math.floor(Math.random() * countryInfo.length)];
+localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
+
+let data = localStorage.getItem("myAnswers");
+answers.innerHTML = data;
+
+console.log(correctAnswer);
+
