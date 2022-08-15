@@ -98,7 +98,6 @@ function selectCountry(e) {
         e.target.innerHTML === correctAnswer[1] ||
         answers.childNodes.length == 9
       ) {
-        console.log("Correct!");
         backdrop.style.display = "flex";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
