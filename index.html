@@ -4,18 +4,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css"  href="css/reset.css" />
-    <link rel="stylesheet" type="text/css"  href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Guess The Nation</title>
   </head>
   <body>
+    <div class="backdrop-tutorial">
+      <div class="tutorial-modal">
+        <div class="tut-content">
+          <h2>Guess the mystery nation!</h2>
+          <ul>
+            <li>You get eight guesses, try any official UN member!</li>
+            <li>
+              <span style="background-color: #2a7b14">Green</span> in the continent and subregion column indicates a match!
+            </li>
+            <li>
+              <span style="background-color: #b49e33">Yellow</span> in the population, size or bordering country column
+              indicates that the mystery country has LESS people, SMALLER land
+              or FEWER bordering neighbours.
+            </li>
+            <li>
+              <span style="background-color: #da4439">Red</span> in the population, size or bordering country column indicates
+              that the mystery country has MORE people, BIGGER land or MORE
+              bordering neighbours.
+            </li>
+            <li>If you get stuck, try enabling Coats of Arms or the flag!</li>
+            <li>Good luck!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="backdrop">
       <div class="modal">
-        <h1 class="correct-name">Serbia</h1>
-        <img src="https://flagcdn.com/w320/cn.png" alt="" class="correct-flag">
+        <h1 class="correct-name"></h1>
+        <img
+          src=""
+          alt=""
+          class="correct-flag"
+        />
         <div class="new-game">
           <button>New Game</button>
         </div>
@@ -23,50 +55,42 @@
     </div>
     <div class="backdrop-coa">
       <div class="modal-coa">
-        <img class="img-coa" width="40%" alt="">
+        <img class="img-coa" width="40%" alt="" />
       </div>
     </div>
     <div class="backdrop-flag">
       <div class="modal-flag">
-        <img class="img-flag" width="40%" alt="">
+        <img class="img-flag" width="40%" alt="" />
       </div>
     </div>
     <header>
-      <h3>How to play</h3>
+      <h3 class="htp">How to play</h3>
     </header>
 
     <main>
-        <div>
-            <h1 class="title">Guess The Nation</h1>
-            <input type="text" name="input" id="input">
-            <ul class="search-list">
-      
-            </ul>
-            <div class="coats-of-arms">
-              <h3 class="coa">Coats of Arms</h3>
-            </div>
-            <div class="hint-flag">
-              <h3 class="flag-h3">Flag</h3>
-            </div>
-            <div class="legend">
-              <p>Flag</p>
-              <p>Continent</p>
-              <p>Subregion</p>
-              <p>Population</p>
-              <p>Size</p>
-              <p>Bordering Countries</p>
-            </div>
-            
+      <div>
+        <h1 class="title">Guess The Nation</h1>
+        <input type="text" name="input" id="input" />
+        <ul class="search-list"></ul>
+        <div class="coats-of-arms">
+          <h3 class="coa">Coats of Arms</h3>
         </div>
-        <div class="answers">
-
-          </div>
-        
+        <div class="hint-flag">
+          <h3 class="flag-h3">Flag</h3>
+        </div>
+        <div class="legend">
+          <p>Flag</p>
+          <p>Continent</p>
+          <p>Subregion</p>
+          <p>Population</p>
+          <p>Size</p>
+          <p>Bordering Countries</p>
+        </div>
+      </div>
+      <div class="answers"></div>
     </main>
 
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script src="./js/main.js" type="module"></script>
   </body>
 </html>

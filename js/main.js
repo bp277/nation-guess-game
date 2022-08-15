@@ -9,6 +9,9 @@ const listItem = document.querySelector(".list-item");
 const backdrop = document.querySelector(".backdrop");
 const backdropCoa = document.querySelector(".backdrop-coa");
 const backdropFlag = document.querySelector(".backdrop-flag");
+const howToPlay = document.querySelector(".htp")
+const backdropTutorial = document.querySelector(".backdrop-tutorial");
+const modalTutorial = document.querySelector(".tutorial-modal");
 const correctName = document.querySelector(".correct-name");
 const correctFlag = document.querySelector(".correct-flag");
 const newGame = document.querySelector(".new-game");
@@ -91,7 +94,7 @@ function selectCountry(e) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (
         e.target.innerHTML === correctAnswer[1] ||
-        answers.childNodes.length == 8
+        answers.childNodes.length == 9
       ) {
         console.log("Correct!");
         backdrop.style.display = "flex";
@@ -200,7 +203,13 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
     borders.classList.add("success");
   }
 }
-//Show Coats Of Arms
+//Show How to play
+howToPlay.addEventListener("click", () => {
+  backdropTutorial.style.display = "flex"
+})
+backdropTutorial.addEventListener("click", () => {
+  backdropTutorial.style.display = "none"
+})//Show Coats Of Arms
 coatsOfArms.addEventListener("click", () => {
   backdropCoa.style.display = "flex"
 })

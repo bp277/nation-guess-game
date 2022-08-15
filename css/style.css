@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(231, 231, 231);
+  background-color: #2C3333;
 }
 .backdrop,
+.backdrop-tutorial,
 .backdrop-coa,
 .backdrop-flag {
   z-index: 1000;
@@ -22,7 +23,7 @@ body {
 .backdrop .modal,
 .backdrop-coa .modal-coa,
 .backdrop-flag .modal-flag {
-  background-color: #ade8f4;
+  background-color: #2C3333;
   width: 400px;
   height: 500px;
   display: flex;
@@ -32,9 +33,33 @@ body {
   gap: 45px;
   font-family: "Montserrat", sans-serif;
   font-size: 32px;
-  border: 3px solid #43c51f;
+  border: 3px solid #A5C9CA;
   border-radius: 10px;
   text-align: center;
+}
+.tutorial-modal h2 {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #A5C9CA;
+}
+.tutorial-modal {
+  text-align: start;
+  padding: 40px;
+  background-color: #2C3333;
+  font-family: "Montserrat", sans-serif;
+  border: 3px solid #A5C9CA;;
+  border-radius: 10px;
+  color: #E7F6F2;
+  width: 30%;
+  position: absolute;
+  top: 150px;
+}
+.tut-content li {
+  list-style-type: disc;
+  margin-bottom: 10px;
+  font-size: 18px;
+
 }
 .new-game {
   display: block;
@@ -43,7 +68,7 @@ body {
   padding: 10px;
   width: 150px;
   border: none;
-  background-color: rgb(43, 208, 158);
+  background-color: #395B64;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -57,7 +82,7 @@ body {
 header {
   text-align: center;
   padding: 20px;
-  background: #26cbe8;
+  background: #395B64;
 }
 header h3 {
   color: white;
@@ -74,7 +99,7 @@ main .title {
   font-size: 36px;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  color: #26cbe8;
+  color: #A5C9CA;
   margin-block: 40px;
 }
 main input {
@@ -101,9 +126,14 @@ main input:focus {
   margin-block: 35px;
   text-decoration: underline;
   cursor: pointer;
-  color: #26cbe8;
+  color: #A5C9CA;
   font-weight: 700;
   width: fit-content;
+}
+.correct-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  color: #A5C9CA
 }
 .search-list {
   width: 30%;
@@ -119,7 +149,7 @@ main input:focus {
 }
 .list-item:hover {
   background-color: rgb(234, 234, 234);
-  color: rgb(36, 156, 30);
+  color: #395B64;
 }
 .answers {
   display: flex;
@@ -139,12 +169,12 @@ main input:focus {
 .legend {
   font-family: "Montserrat", sans-serif;
   padding: 15px 5px;
-  border-bottom: 2px solid #48cae4;
-  margin: 0 auto;
+  border-bottom: 2px solid #A5C9CA;
+  color: #E7F6F2;
 }
 .answer {
   -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.25);
-  box-shadow: 5px 5px 15px 5px rgba(92, 92, 92, 0.25);
+  box-shadow: 5px 5px 15px 5px rgba(123, 123, 123, 0.25);
 }
 .continent,
 .subregion,
@@ -158,17 +188,17 @@ main input:focus {
   justify-content: center;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  color: #333;
+  color: #fff;
 }
 .flag img {
   border-radius: 10px;
 }
 
 .success {
-  background-color: #43c51f;
+  background-color: #2a7b14;
 }
 .lower {
-  background-color: #f5d743;
+  background-color: #b49e33;
 }
 .lower::after {
   content: "↓";
@@ -176,7 +206,7 @@ main input:focus {
   margin-bottom: 5px;
 }
 .higher {
-  background-color: #f54f43;
+  background-color: #da4439;
 }
 .higher::after {
   content: "↑";
