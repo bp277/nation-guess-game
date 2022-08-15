@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./js/main.js" type="module"></script>
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,19 +23,24 @@
           <ul>
             <li>You get eight guesses, try any official UN member!</li>
             <li>
-              <span style="background-color: #2a7b14">Green</span> in the continent and subregion column indicates a match!
+              <span style="background-color: #2a7b14">Green</span> in the
+              continent, subregion and bordering countries column indicates a match!
             </li>
             <li>
-              <span style="background-color: #b49e33">Yellow</span> in the population, size or bordering country column
-              indicates that the mystery country has LESS people, SMALLER land
-              or FEWER bordering neighbours than the country you guessed.
+              <span style="background-color: #b49e33">Yellow</span> in the
+              population, size or bordering country column indicates that the
+              mystery country has LESS people, SMALLER land or FEWER bordering
+              neighbours than the country you guessed.
             </li>
             <li>
-              <span style="background-color: #da4439">Red</span> in the population, size or bordering country column indicates
-              that the mystery country has MORE people, BIGGER land or MORE
-              bordering neighbours than the country you guessed.
+              <span style="background-color: #da4439">Red</span> in the
+              population, size or bordering country column indicates that the
+              mystery country has MORE people, BIGGER land or MORE bordering
+              neighbours than the country you guessed.
             </li>
-            <li>If you get stuck, try looking at the Coats of Arms or the flag!</li>
+            <li>
+              If you get stuck, try looking at the Coats of Arms or the flag!
+            </li>
             <li>Good luck!</li>
           </ul>
         </div>
@@ -43,11 +49,7 @@
     <div class="backdrop">
       <div class="modal">
         <h1 class="correct-name"></h1>
-        <img
-          src=""
-          alt=""
-          class="correct-flag"
-        />
+        <img src="" alt="" class="correct-flag" />
         <div class="new-game">
           <button>New Game</button>
         </div>
@@ -87,10 +89,15 @@
           <p>Bordering Countries</p>
         </div>
       </div>
-      <div class="answers"></div>
+      <div class="answers-wrapper">
+        <div class="answers"></div>
+      </div>
+
+      <div style="margin-top: 20px" class="new-game-ui">
+        <button>New Game</button>
+      </div>
     </main>
 
     <footer></footer>
-    <script src="./js/main.js" type="module"></script>
   </body>
 </html>

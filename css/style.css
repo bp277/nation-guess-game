@@ -65,7 +65,10 @@ body {
 .new-game {
   display: block;
 }
-.new-game button {
+.new-game-ui {
+  display: none;
+}
+.new-game button, .new-game-ui button {
   padding: 10px;
   width: 150px;
   border: none;
@@ -156,6 +159,10 @@ main input:focus {
   flex-direction: column;
   margin: 0 auto;
   background-color: #395b64;
+}
+.answers-wrapper {
+  display: block;
+  border-bottom: 2px solid #a5c9ca;
 }
 .answer,
 .legend {
@@ -268,7 +275,9 @@ main input:focus {
     width: 50px;
     height: 35px;
   }
-  .backdrop-coa .modal-coa, .backdrop-flag .modal-flag, .backdrop .modal {
+  .backdrop-coa .modal-coa,
+  .backdrop-flag .modal-flag,
+  .backdrop .modal {
     width: 350px;
     height: 450px;
   }

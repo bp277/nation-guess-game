@@ -15,6 +15,7 @@ const modalTutorial = document.querySelector(".tutorial-modal");
 const correctName = document.querySelector(".correct-name");
 const correctFlag = document.querySelector(".correct-flag");
 const newGame = document.querySelector(".new-game");
+const newGameUI = document.querySelector(".new-game-ui");
 const coatsOfArms = document.querySelector(".coa");
 const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
@@ -96,18 +97,25 @@ function selectCountry(e) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (
         e.target.innerHTML === correctAnswer[1] ||
-        answers.childNodes.length == 9
+        answers.childNodes.length == 8
       ) {
         backdrop.style.display = "flex";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
+        input.disabled = true
       }
     }
     input.value = "";
     searchList.innerHTML = "";
   }
 }
+
 newGame.addEventListener("click", () => {
+  location.reload();
+  id = null;
+  localStorage.clear();
+});
+newGameUI.addEventListener("click", () => {
   location.reload();
   id = null;
   localStorage.clear();
@@ -209,6 +217,7 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
     borders.classList.add("success");
   }
   localStorage.setItem("myAnswers", answers.innerHTML);
+  newGameUI.style.display = "block";
 }
 //Show How to play
 howToPlay.addEventListener("click", () => {
@@ -230,6 +239,9 @@ hintFlag.addEventListener("click", () => {
 backdropFlag.addEventListener("click", () => {
   backdropFlag.style.display = "none";
 });
+backdrop.addEventListener("click", () => {
+  backdrop.style.display = "none";
+});
 
 let correctAnswer =  JSON.parse(localStorage.getItem("correctAnswer")) || countryInfo[Math.floor(Math.random() * countryInfo.length)];
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
@@ -237,5 +249,7 @@ imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
 
 let data = localStorage.getItem("myAnswers");
+
 answers.innerHTML = data;
 
+console.log(correctAnswer)
