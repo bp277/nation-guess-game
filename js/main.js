@@ -227,7 +227,7 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
   newGameUI.style.display = "block";
 
   localStorage.setItem("guessNum", answers.childNodes.length);
-  input.placeholder = `${answers.childNodes.length} of 8`
+  input.placeholder = `${answers.childNodes.length} of 8`;
 
   console.log(answers.childNodes.length);
 }
@@ -263,9 +263,8 @@ imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
 
 let data = localStorage.getItem("myAnswers");
-let guessData = localStorage.getItem("guessNum")
+let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
-
 
 answers.innerHTML = data;
 
