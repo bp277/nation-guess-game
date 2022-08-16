@@ -6,6 +6,7 @@
 }
 body {
   background-color: #2c3333;
+  overflow-y: scroll;
 }
 .backdrop,
 .backdrop-tutorial,

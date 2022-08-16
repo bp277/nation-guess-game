@@ -224,12 +224,11 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
     borders.classList.add("success");
   }
   localStorage.setItem("myAnswers", answers.innerHTML);
-  newGameUI.style.display = "block";
 
   localStorage.setItem("guessNum", answers.childNodes.length);
   input.placeholder = `${answers.childNodes.length} of 8`;
 
-  console.log(answers.childNodes.length);
+  answers.childNodes.length === 8 ? newGameUI.style.display = "block" : false
 }
 //Show How to play
 howToPlay.addEventListener("click", () => {
@@ -265,6 +264,9 @@ modalFlag.src = correctAnswer[0];
 let data = localStorage.getItem("myAnswers");
 let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
+if(guessData) {
+  newGameUI.style.display = "block"
+}
 
 answers.innerHTML = data;
 
