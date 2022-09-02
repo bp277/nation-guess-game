@@ -260,13 +260,12 @@ let correctAnswer =
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
+newGameUI.style.display = "block"
 
 let data = localStorage.getItem("myAnswers");
 let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
-if(guessData) {
-  newGameUI.style.display = "block"
-}
+
 
 answers.innerHTML = data;
 
