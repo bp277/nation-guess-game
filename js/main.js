@@ -1,5 +1,5 @@
-import { unMembers } from "./countries.js";
 import { Answer } from "./answer.js";
+
 
 const main = document.querySelector("main");
 const input = document.querySelector("#input");
@@ -23,23 +23,30 @@ const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
 const guess = document.querySelector(".guess");
 
+// Fetch country data
+async function getCountries() {
+  return fetch('https://restcountries.com/v3.1/all').then(res => res.json());
+}
+ 
+const allCountries  = await getCountries();
+
 let id = null;
 let guessNumber = 0;
 
 let countryInfo = [];
 
-for (let i = 0; i < unMembers.length; i++) {
+for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
-    unMembers[i].flags.png,
-    unMembers[i].name.common,
-    unMembers[i].continents,
-    unMembers[i].subregion,
-    unMembers[i].population,
-    unMembers[i].area,
-    unMembers[i].borders == undefined
-      ? (unMembers[i].borders = [])
-      : unMembers[i].borders,
-    unMembers[i].coatOfArms.png,
+    allCountries[i].flags.png,
+    allCountries[i].name.common,
+    allCountries[i].continents,
+    allCountries[i].subregion,
+    allCountries[i].population,
+    allCountries[i].area,
+    allCountries[i].borders == undefined
+      ? (allCountries[i].borders = [])
+      : allCountries[i].borders,
+    allCountries[i].coatOfArms.png,
   ]);
 }
 
@@ -75,26 +82,26 @@ input.addEventListener("keyup", (e) => {
 
 function selectCountry(e) {
   for (let i = 0; i < countryInfo.length; i++) {
-    if (e.target.innerHTML === unMembers[i].name.common) {
+    if (e.target.innerHTML === allCountries[i].name.common) {
       new Answer(
-        unMembers[i].flags.png,
-        unMembers[i].continents[0],
-        unMembers[i].subregion,
-        unMembers[i].population,
-        unMembers[i].area,
-        unMembers[i].borders.length
+        allCountries[i].flags.png,
+        allCountries[i].continents[0],
+        allCountries[i].subregion,
+        allCountries[i].population,
+        allCountries[i].area,
+        allCountries[i].borders.length
       );
 
       createAnswer(
-        unMembers[i].flags.png,
-        unMembers[i].continents[0],
-        unMembers[i].subregion,
-        unMembers[i].population
+        allCountries[i].flags.png,
+        allCountries[i].continents[0],
+        allCountries[i].subregion,
+        allCountries[i].population
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-        unMembers[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+        allCountries[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
           " km²",
-        unMembers[i].borders.length
+        allCountries[i].borders.length
       );
 
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
