@@ -28,7 +28,8 @@ async function getCountries() {
   return fetch('https://restcountries.com/v3.1/all').then(res => res.json());
 }
  
-const allCountries  = await getCountries();
+const fetchedCountries  = await getCountries()
+const allCountries = fetchedCountries.filter(c => c.unMember == true)
 
 let id = null;
 let guessNumber = 0;
