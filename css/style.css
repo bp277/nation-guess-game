@@ -20,9 +20,8 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  animation: append-animate .1s linear;
+  animation: append-animate 0.1s linear;
   overflow-y: hidden;
-
 }
 .backdrop .modal,
 .backdrop-coa .modal-coa,
@@ -42,8 +41,7 @@ body {
   text-align: center;
   position: absolute;
   top: 150px;
-  animation: append-animate .1s linear;
-
+  animation: append-animate 0.1s linear;
 }
 .tutorial-modal h2 {
   font-size: 30px;
@@ -88,7 +86,8 @@ body {
   color: white;
   cursor: pointer;
 }
-.new-game button:hover, .new-game-ui button:hover {
+.new-game button:hover,
+.new-game-ui button:hover {
   background-color: rgb(34, 157, 120);
 }
 header {
@@ -176,19 +175,18 @@ main input:focus {
 .answers-wrapper {
   display: block;
   border-bottom: 2px solid #a5c9ca;
-
 }
 .answer,
 .legend {
   display: grid;
-grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   place-items: center;
 }
 .answer {
-  animation: append-animate 0.2s linear
-
+  animation: append-animate 0.2s linear;
 }
 .legend {
   font-family: "Montserrat", sans-serif;
@@ -212,8 +210,7 @@ grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));  grid-template-rows:
   color: #fff;
   border-right: 2px solid #2c3333;
   padding: 5px;
-  animation: append-animate 0.2s linear
-
+  animation: append-animate 0.2s linear;
 }
 .borders {
   border: none;
@@ -304,10 +301,10 @@ grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));  grid-template-rows:
     width: 350px;
     height: 450px;
   }
-  .tut-content li{
+  .tut-content li {
     font-size: 14px;
   }
-  .tut-content p{
+  .tut-content p {
     font-size: 10px;
     margin-top: 25px;
   }
@@ -334,10 +331,10 @@ grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));  grid-template-rows:
   }
 }
 @keyframes append-animate {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;	
-	}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
