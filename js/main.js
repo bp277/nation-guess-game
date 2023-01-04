@@ -54,8 +54,6 @@ for (let i = 0; i < allCountries.length; i++) {
 //Searching and Submiting answer
 input.addEventListener("keyup", () => {
   // Creating list of search results
-  const searchItem = document.createElement("li");
-
   const inputValue = input.value;
 
   const filtered = countryInfo.filter((c) =>
@@ -276,5 +274,3 @@ input.placeholder = `${guessData ? guessData : 0} of 8`;
 
 
 answers.innerHTML = data;
-
-console.log(correctAnswer);
