@@ -20,7 +20,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  animation: append-animate 0.1s linear;
+  animation: append-animate 0.2s ease;
   overflow-y: hidden;
 }
 .backdrop .modal,
@@ -41,7 +41,7 @@ body {
   text-align: center;
   position: absolute;
   top: 150px;
-  animation: append-animate 0.1s linear;
+  animation: append-animate 0.2s ease;
 }
 .tutorial-modal h2 {
   font-size: 30px;
