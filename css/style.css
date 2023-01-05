@@ -163,7 +163,7 @@ main input:focus {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
-.list-item:hover {
+.list-item:hover, .list-item-selected {
   background-color: rgb(234, 234, 234);
   color: #395b64;
 }

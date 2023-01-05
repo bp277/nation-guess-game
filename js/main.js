@@ -73,11 +73,7 @@ input.addEventListener("keyup", () => {
   }
 });
 
-input.addEventListener("keyup", (e) => {
-  if (e.code === "Enter") {
-    createAnswer();
-  }
-});
+
 
 function selectCountry(e) {
   for (let i = 0; i < countryInfo.length; i++) {
@@ -121,6 +117,42 @@ function selectCountry(e) {
     input.value = "";
     searchList.innerHTML = "";
   }
+}
+
+if(listItem){
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    console.log('asd');;
+  }
+});
+
+}
+
+// Keyboard navigation for country list
+window.displayBoxIndex = -1;
+
+$("#input").keyup(function(e) 
+{
+        if (e.keyCode == 40) 
+        {  
+            Navigate(1);
+        }
+        if(e.keyCode==38)
+        {
+            Navigate(-1);
+        }
+      
+});
+                   
+var Navigate = function(diff) {
+    displayBoxIndex += diff;
+    var oBoxCollection = $(".list-item");
+    if (displayBoxIndex >= oBoxCollection.length)
+         displayBoxIndex = 0;
+    if (displayBoxIndex < 0)
+         displayBoxIndex = oBoxCollection.length - 1;
+    var cssClass = "list-item-selected";
+    oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
 }
 
 newGame.addEventListener("click", () => {
