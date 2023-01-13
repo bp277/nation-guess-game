@@ -60,7 +60,7 @@ body {
   border-radius: 10px;
   color: #e7f6f2;
   font-weight: 300;
-  width: 30%;
+  width: 80%;
   position: absolute;
   top: 150px;
 }
@@ -244,7 +244,7 @@ main input:focus {
 
 @media (max-width: 768px) {
   .tutorial-modal {
-    width: 50%;
+    font-size: 16px;
   }
   main .title {
     font-size: 30px;
