@@ -154,8 +154,11 @@ main input:focus {
 .search-list {
   width: 30%;
   margin: 0 auto;
+  left: 0;
+  right: 0;
   background-color: aliceblue;
   z-index: 1000;
+  position: absolute;
 }
 .list-item {
   font-size: 24px;
