@@ -113,6 +113,51 @@ function selectCountry(e) {
   }
 }
 
+function selectCountryTwo(answ) {
+  for (let i = 0; i < countryInfo.length; i++) {
+    if (answ === allCountries[i].name.common) {
+      new Answer(
+        allCountries[i].flags.png,
+        allCountries[i].continents[0],
+        allCountries[i].subregion,
+        allCountries[i].population,
+        allCountries[i].area,
+        allCountries[i].borders.length
+      );
+
+      createAnswer(
+        allCountries[i].flags.png,
+        allCountries[i].continents[0],
+        allCountries[i].subregion,
+        allCountries[i].population
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        allCountries[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+          " km²",
+        allCountries[i].borders.length
+      );
+
+      // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
+      if (answ === correctAnswer[1]) {
+        backdrop.style.display = "flex";
+        status.textContent = "You Win";
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
+        input.disabled = true;
+      } else if (answers.childNodes.length == 8) {
+        backdrop.style.display = "flex";
+        status.textContent = "Game Over";
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
+        input.disabled = true;
+      }
+    }
+    input.value = "";
+    searchList.innerHTML = "";
+  }
+}
+
+
 // Keyboard navigation for country list
 window.displayBoxIndex = -1;
 
@@ -124,8 +169,15 @@ $("#input").keyup(function (e) {
     Navigate(-1);
   }
   if (e.keyCode == 13) {
-    console.log($('.list-item-selected').innerHTML);
+    e.preventDefault();
+    Navigate(0);
+    selectCountryTwo($('.list-item-selected')[0].innerHTML)
+    
   }
+  // if (e.keyCode == 13) {
+  //   Navigate(0);
+  //   console.log($('.list-item-selected')[0].innerHTML)
+  // }
 });
 
 var Navigate = function (diff) {
