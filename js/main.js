@@ -1,10 +1,9 @@
 import { Answer } from "./answer.js";
 
-
 const input = document.querySelector("#input");
 const answers = document.querySelector(".answers");
 const searchList = document.querySelector(".search-list");
-const listItem = document.querySelector(".list-item");
+const selectedCountry = document.querySelector(".list-item-selected");
 const backdrop = document.querySelector(".backdrop");
 const backdropCoa = document.querySelector(".backdrop-coa");
 const backdropFlag = document.querySelector(".backdrop-flag");
@@ -22,11 +21,11 @@ const modalFlag = document.querySelector(".img-flag");
 
 // Fetch country data
 async function getCountries() {
-  return fetch('https://restcountries.com/v3.1/all').then(res => res.json());
+  return fetch("https://restcountries.com/v3.1/all").then((res) => res.json());
 }
- 
-const fetchedCountries  = await getCountries()
-const allCountries = fetchedCountries.filter(c => c.unMember == true)
+
+const fetchedCountries = await getCountries();
+const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
 let guessNumber = 0;
@@ -69,8 +68,6 @@ input.addEventListener("keyup", () => {
     searchList.innerHTML = innerElement;
   }
 });
-
-
 
 function selectCountry(e) {
   for (let i = 0; i < countryInfo.length; i++) {
@@ -116,41 +113,26 @@ function selectCountry(e) {
   }
 }
 
-if(listItem){
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    console.log('asd');;
-  }
-});
-
-}
-
 // Keyboard navigation for country list
 window.displayBoxIndex = -1;
 
-$("#input").keyup(function(e) 
-{
-        if (e.keyCode == 40) 
-        {  
-            Navigate(1);
-        }
-        if(e.keyCode==38)
-        {
-            Navigate(-1);
-        }
-      
+$("#input").keyup(function (e) {
+  if (e.keyCode == 40) {
+    Navigate(1);
+  }
+  if (e.keyCode == 38) {
+    Navigate(-1);
+  }
 });
-                   
-var Navigate = function(diff) {
-    displayBoxIndex += diff;
-    var oBoxCollection = $(".list-item");
-    if (displayBoxIndex >= oBoxCollection.length)
-         displayBoxIndex = 0;
-    if (displayBoxIndex < 0)
-         displayBoxIndex = oBoxCollection.length - 1;
-    var cssClass = "list-item-selected";
-    oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
-}
+
+var Navigate = function (diff) {
+  displayBoxIndex += diff;
+  var oBoxCollection = $(".list-item");
+  if (displayBoxIndex >= oBoxCollection.length) displayBoxIndex = 0;
+  if (displayBoxIndex < 0) displayBoxIndex = oBoxCollection.length - 1;
+  var cssClass = "list-item-selected";
+  oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
+};
 
 newGame.addEventListener("click", () => {
   location.reload();
@@ -166,6 +148,8 @@ newGameUI.addEventListener("click", () => {
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
 }
+
+
 //Creating and appending the answer
 
 function createAnswer(flg, cont, subreg, pop, siz, bord) {
@@ -263,7 +247,7 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
   localStorage.setItem("guessNum", answers.childNodes.length);
   input.placeholder = `${answers.childNodes.length} of 8`;
 
-  answers.childNodes.length === 8 ? newGameUI.style.display = "block" : false
+  answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
 }
 //Show How to play
 howToPlay.addEventListener("click", () => {
@@ -295,11 +279,10 @@ let correctAnswer =
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
-newGameUI.style.display = "block"
+newGameUI.style.display = "block";
 
 let data = localStorage.getItem("myAnswers");
 let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
-
 
 answers.innerHTML = data;
