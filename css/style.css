@@ -1,6 +1,7 @@
 .search-list li:nth-of-type(1n + 5) {
   display: none;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -154,11 +155,8 @@ main input:focus {
 .search-list {
   width: 30%;
   margin: 0 auto;
-  left: 0;
-  right: 0;
   background-color: aliceblue;
   z-index: 1000;
-  position: absolute;
 }
 .list-item {
   font-size: 24px;
@@ -169,6 +167,7 @@ main input:focus {
 .list-item:hover, .list-item-selected {
   background-color: rgb(234, 234, 234);
   color: #395b64;
+  display: block !important;
 }
 .answers {
   display: flex;

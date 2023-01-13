@@ -1,7 +1,6 @@
 import { Answer } from "./answer.js";
 
 
-const main = document.querySelector("main");
 const input = document.querySelector("#input");
 const answers = document.querySelector(".answers");
 const searchList = document.querySelector(".search-list");
@@ -11,7 +10,6 @@ const backdropCoa = document.querySelector(".backdrop-coa");
 const backdropFlag = document.querySelector(".backdrop-flag");
 const howToPlay = document.querySelector(".htp");
 const backdropTutorial = document.querySelector(".backdrop-tutorial");
-const modalTutorial = document.querySelector(".tutorial-modal");
 const correctName = document.querySelector(".correct-name");
 const status = document.querySelector(".status");
 const correctFlag = document.querySelector(".correct-flag");
@@ -21,7 +19,6 @@ const coatsOfArms = document.querySelector(".coa");
 const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
-const guess = document.querySelector(".guess");
 
 // Fetch country data
 async function getCountries() {
