@@ -53,7 +53,7 @@ input.addEventListener("keyup", () => {
   const inputValue = input.value;
 
   const filtered = countryInfo.filter((c) =>
-    c[1].toLowerCase().includes(inputValue.toLowerCase())
+    c[1].toLowerCase().startsWith(inputValue.toLowerCase())
   );
   const searchResult = Object.values(filtered).map((obj) => {
     return obj[1];
@@ -123,6 +123,9 @@ $("#input").keyup(function (e) {
   if (e.keyCode == 38) {
     Navigate(-1);
   }
+  if (e.keyCode == 13) {
+    console.log($('.list-item-selected').innerHTML);
+  }
 });
 
 var Navigate = function (diff) {
@@ -148,6 +151,7 @@ newGameUI.addEventListener("click", () => {
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
 }
+
 
 
 //Creating and appending the answer
