@@ -189,9 +189,7 @@ main input:focus {
   grid-row-gap: 0px;
   place-items: center;
 }
-.answer {
-  animation: append-animate 0.2s linear;
-}
+
 .legend {
   font-family: "Montserrat", sans-serif;
   padding: 15px 5px;
@@ -214,7 +212,6 @@ main input:focus {
   color: #fff;
   border-right: 2px solid #2c3333;
   padding: 5px;
-  animation: append-animate 0.2s linear;
 }
 .borders {
   border: none;
@@ -341,4 +338,24 @@ main input:focus {
   to {
     opacity: 1;
   }
+}
+
+/* Answer animation */
+.flag {
+  animation: append-animate 0.4s linear;
+}
+.continent {
+  animation: append-animate 0.7s linear;
+}
+.subregion {
+  animation: append-animate 1s linear;
+}
+.population {
+  animation: append-animate 1.3s linear;
+}
+.size {
+  animation: append-animate 1.6s linear;
+}
+.borders {
+  animation: append-animate 1.9s linear;
 }
