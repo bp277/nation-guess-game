@@ -174,10 +174,6 @@ $("#input").keyup(function (e) {
     selectCountryTwo($('.list-item-selected')[0].innerHTML)
     
   }
-  // if (e.keyCode == 13) {
-  //   Navigate(0);
-  //   console.log($('.list-item-selected')[0].innerHTML)
-  // }
 });
 
 var Navigate = function (diff) {
@@ -187,6 +183,7 @@ var Navigate = function (diff) {
   if (displayBoxIndex < 0) displayBoxIndex = oBoxCollection.length - 1;
   var cssClass = "list-item-selected";
   oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
+  displayBoxIndex = -1
 };
 
 newGame.addEventListener("click", () => {
