@@ -359,9 +359,6 @@ main input:focus {
   }
 }
 @media (max-width: 425px) {
-  .list-item {
-    font-size: 10px;
-  }
   .flag,
   .continent,
   .subregion,
