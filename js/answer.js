@@ -1,6 +1,7 @@
 export class Answer {
-    constructor(flag, continent,population,landSize,borderingCountries) {
+    constructor(flag, name, continent,population,landSize,borderingCountries) {
         this.flag = flag;
+        this.name = name;
         this.continent = continent;
         this.population = population;
         this.landSize = landSize;
