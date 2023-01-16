@@ -187,7 +187,6 @@ var Navigate = function (diff) {
   if (displayBoxIndex < 0) displayBoxIndex = oBoxCollection.length - 1;
   var cssClass = "list-item-selected";
   oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
-  displayBoxIndex = -1
 };
 
 newGame.addEventListener("click", () => {
@@ -209,7 +208,7 @@ if (searchList) {
 
 //Creating and appending the answer
 
-function createAnswer(flg, cont, subreg, pop, siz, bord) {
+function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
   const answer = document.createElement("div");
   answer.classList.add("answer");
   answer.setAttribute("id", id++ + 1);
@@ -223,6 +222,9 @@ function createAnswer(flg, cont, subreg, pop, siz, bord) {
   flagImg.src = flg;
   flagImg.setAttribute("width", "68px");
   flagImg.setAttribute("height", "45px");
+  const countryName = document.createElement("div");
+  flag.appendChild(countryName);
+  countryName.textContent = name
 
   const continent = document.createElement("div");
   continent.classList.add("continent");
