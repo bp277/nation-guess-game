@@ -138,6 +138,11 @@ main input:focus {
   display: grid;
   place-items: center;
 }
+
+.hint-flag {
+  margin-bottom: 60px;
+}
+
 .coa,
 .flag-h3 {
   font-family: "Montserrat", sans-serif;
@@ -216,11 +221,18 @@ main input:focus {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
-  border-right: 2px solid #2c3333;
+  border-right: 1px solid #2c3333;
   padding: 5px;
+  position: relative;
 }
+
 .borders {
   border: none;
+}
+.flag {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;  
 }
 .flag img {
   border-radius: 10px;
@@ -230,41 +242,65 @@ main input:focus {
   background-color: #2a7b14;
 }
 .lower {
-  background-color: #b49e33;
+  background-color: #395b64;
 }
 .lower::after {
-  content: "↓";
-  font-size: 28px;
-  margin-bottom: 5px;
+  content: "\f0d7";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 16px;
+  color: #b49e33;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  left: 0;
 }
 .higher {
-  background-color: #da4439;
+  background-color: #395b64;
 }
 .higher::after {
-  content: "↑";
-  font-size: 28px;
-  margin-bottom: 5px;
+  content: "\f0d8";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 16px;
+  margin-top: 5px;
+  color: #da4439;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 0;
 }
 
 @media (max-width: 768px) {
   .tutorial-modal {
     font-size: 16px;
   }
+
   main .title {
     font-size: 30px;
+  }
+
+  .list-item {
+    font-size: 18px;
+  }
+
+  .answer {
+    font-size: 14px;
+  }
+
+  .population, .size, .borders {
+    flex-direction: column !important;
   }
 }
 @media (max-width: 576px) {
   .list-item {
-    font-size: 18px;
+    font-size: 14px;
   }
-  .continent,
-  .subregion,
-  .population,
-  .size,
-  .borders {
+
+  .answer {
     font-size: 12px;
   }
+
   .legend {
     font-size: 12px;
   }
@@ -272,11 +308,21 @@ main input:focus {
     width: 50px;
     height: 28px;
   }
+  .population.lower::after, .size.lower::after, .borders.lower::after {
+    font-size: 14px;
+    top: 41px;
+  }
+
+  .population.higher::after, .size.higher::after, .borders.higher::after {
+    font-size: 14px;
+    top: 2px;
+  }
 }
 @media (max-width: 425px) {
   .list-item {
-    font-size: 14px;
+    font-size: 10px;
   }
+  .flag,
   .continent,
   .subregion,
   .population,
@@ -312,6 +358,7 @@ main input:focus {
     width: 350px;
     height: 450px;
   }
+
   .tut-content li {
     font-size: 14px;
   }
@@ -329,6 +376,7 @@ main input:focus {
     .title {
       font-size: 24px;
     }
+    .flag,
     .continent,
     .subregion,
     .population,
