@@ -102,11 +102,17 @@ header h3,
   font-weight: 700;
   cursor: pointer;
 }
+
 main {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+.main-wrapper {
+  position: relative;
+}
+
 main .title {
   font-size: 36px;
   font-family: "Montserrat", sans-serif;
@@ -114,6 +120,7 @@ main .title {
   color: #a5c9ca;
   margin-block: 40px;
 }
+
 main input {
   width: 390px;
   padding: 20px;
@@ -122,13 +129,12 @@ main input {
   margin-bottom: 20px;
   font-size: 28px;
 }
+
 main input:focus {
   border: 1px solid rgb(36, 156, 30);
   box-shadow: 5px 5px 15px 5px rgba(92, 92, 92, 0.25);
 }
-.guess {
-  color: #fff;
-}
+
 .hint-flag,
 .coats-of-arms {
   display: grid;
@@ -150,19 +156,25 @@ main input:focus {
   font-weight: 700;
   width: fit-content;
 }
+
 .correct-name {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
   color: #a5c9ca;
 }
+
 .search-list {
   width: 390px;
   margin: 0 auto;
   background-color: aliceblue;
   z-index: 1000;
-  max-height: 211px;
+  max-height: 158px;
   overflow: auto;
   animation: append-animate 0.2s ease;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 328px;
 }
 
 .list-item {
@@ -170,6 +182,7 @@ main input:focus {
   padding: 14px;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
+  border-bottom: 1px solid black;
 }
 
 .list-item:hover,
@@ -314,6 +327,10 @@ main input:focus {
     font-size: 30px;
   }
 
+  .search-list {
+    bottom: 343px;
+  }
+
   .answer {
     font-size: 14px;
   }
@@ -325,6 +342,9 @@ main input:focus {
   }
 }
 @media (max-width: 576px) {
+  .search-list {
+    bottom: 339px;
+  }
 
   .answer {
     font-size: 12px;
@@ -333,6 +353,7 @@ main input:focus {
   .legend {
     font-size: 12px;
   }
+
   .flag > img {
     width: 50px;
     height: 28px;
@@ -360,6 +381,12 @@ main input:focus {
   .borders {
     font-size: 8px;
   }
+
+  .search-list {
+    max-height: 146px;
+    bottom: 295px;
+  }
+
   .legend {
     font-size: 9px;
   }
@@ -428,6 +455,14 @@ main input:focus {
     }
   }
 }
+
+@media (min-width: 769px) and (max-width: 875px) {
+  .search-list {
+    bottom: 342px;
+
+  }
+}
+
 @keyframes append-animate {
   from {
     opacity: 0;
