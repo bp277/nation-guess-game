@@ -160,7 +160,7 @@ main input:focus {
   margin: 0 auto;
   background-color: aliceblue;
   z-index: 1000;
-  max-height: 210px;
+  max-height: 211px;
   overflow: auto;
   animation: append-animate 0.2s ease;
 }
