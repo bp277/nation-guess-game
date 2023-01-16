@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K7F44F0PM0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-K7F44F0PM0");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PZZTGXH");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +68,16 @@
     <title>Guess The Nation</title>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PZZTGXH"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="backdrop-tutorial">
       <div class="tutorial-modal">
         <div class="tut-content">
@@ -155,43 +193,7 @@
         <button>New Game</button>
       </div>
     </main>
-    <footer>
-      <!-- Quantcast Tag -->
-      <script type="text/javascript">
-        window._qevents = window._qevents || [];
-
-        (function () {
-          var elem = document.createElement("script");
-          elem.src =
-            (document.location.protocol == "https:"
-              ? "https://secure"
-              : "http://edge") + ".quantserve.com/quant.js";
-          elem.async = true;
-          elem.type = "text/javascript";
-          var scpt = document.getElementsByTagName("script")[0];
-          scpt.parentNode.insertBefore(elem, scpt);
-        })();
-
-        window._qevents.push({
-          qacct: "p-Mc_JEjc2vUST2",
-          uid: "__INSERT_EMAIL_HERE__",
-        });
-      </script>
-
-      <noscript>
-        <div style="display: none">
-          <img
-            src="//pixel.quantserve.com/pixel/p-Mc_JEjc2vUST2.gif"
-            border="0"
-            height="1"
-            width="1"
-            alt="Quantcast"
-          />
-        </div>
-      </noscript>
-      <!-- End Quantcast tag -->
-    </footer>
-
+  
     <script src="./js/main.js" type="module"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
