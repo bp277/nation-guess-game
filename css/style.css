@@ -3,7 +3,7 @@
 }
 body {
   background-color: #2c3333;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .backdrop,
 .backdrop-tutorial,
@@ -160,8 +160,9 @@ main input:focus {
   margin: 0 auto;
   background-color: aliceblue;
   z-index: 1000;
-  max-height: 235px;
-  overflow: auto
+  max-height: 210px;
+  overflow: auto;
+  animation: append-animate 0.2s ease;
 }
 
 .list-item {
