@@ -1,7 +1,3 @@
-.search-list li:nth-of-type(1n + 5) {
-  display: none;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -164,19 +160,24 @@ main input:focus {
   margin: 0 auto;
   background-color: aliceblue;
   z-index: 1000;
+  max-height: 235px;
+  overflow: auto
 }
+
 .list-item {
   font-size: 24px;
   padding: 14px;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
+
 .list-item:hover,
 .list-item-selected {
   background-color: rgb(234, 234, 234);
   color: #395b64;
   display: block !important;
 }
+
 .answers-wrapper {
   display: block;
   border-top: 2px solid #a5c9ca;
@@ -185,6 +186,7 @@ main input:focus {
   margin-right: 10px;
   margin-bottom: 50px;
 }
+
 .answers {
   display: flex;
   flex-direction: column;
@@ -208,6 +210,7 @@ main input:focus {
   padding: 15px 5px;
   color: #e7f6f2;
 }
+
 .continent,
 .subregion,
 .population,
@@ -230,11 +233,13 @@ main input:focus {
 .borders {
   border: none;
 }
+
 .flag {
   display: flex;
   flex-direction: column;
-  gap: 10px;  
+  gap: 10px;
 }
+
 .flag img {
   border-radius: 10px;
 }
@@ -242,12 +247,14 @@ main input:focus {
 .success {
   background-color: #2a7b14;
 }
+
 .lower {
   background-color: #395b64;
 }
+
 .lower::after {
   content: "\f0d7";
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 16px;
   color: #b49e33;
@@ -256,12 +263,14 @@ main input:focus {
   right: 0;
   left: 0;
 }
+
 .higher {
   background-color: #395b64;
 }
+
 .higher::after {
   content: "\f0d8";
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 16px;
   margin-top: 5px;
@@ -270,6 +279,29 @@ main input:focus {
   top: 5px;
   right: 0;
   left: 0;
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a5c9ca;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a5c9ca;
 }
 
 @media (max-width: 768px) {
@@ -289,7 +321,9 @@ main input:focus {
     font-size: 14px;
   }
 
-  .population, .size, .borders {
+  .population,
+  .size,
+  .borders {
     flex-direction: column !important;
   }
 }
@@ -309,12 +343,16 @@ main input:focus {
     width: 50px;
     height: 28px;
   }
-  .population.lower::after, .size.lower::after, .borders.lower::after {
+  .population.lower::after,
+  .size.lower::after,
+  .borders.lower::after {
     font-size: 14px;
     top: 41px;
   }
 
-  .population.higher::after, .size.higher::after, .borders.higher::after {
+  .population.higher::after,
+  .size.higher::after,
+  .borders.higher::after {
     font-size: 14px;
     top: 2px;
   }
