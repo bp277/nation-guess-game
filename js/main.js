@@ -112,6 +112,7 @@ function selectCountry(e) {
     }
     input.value = "";
     searchList.innerHTML = "";
+    searchList.scrollIntoView();
   }
 }
 
@@ -158,6 +159,7 @@ function selectCountryEnterKey(answ) {
     }
     input.value = "";
     searchList.innerHTML = "";
+    searchList.scrollIntoView();
   }
 }
 
@@ -208,8 +210,6 @@ newGameUI.addEventListener("click", () => {
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
 }
-
-
 
 //Creating and appending the answer
 
