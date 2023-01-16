@@ -12,7 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -101,7 +107,7 @@
     </div>
     <div class="backdrop-flag">
       <div class="modal-flag">
-        <img class="img-flag" style="border-radius: 10px;" width="40%" alt="" />
+        <img class="img-flag" style="border-radius: 10px" width="40%" alt="" />
         <p
           style="
             text-align: center;
@@ -121,7 +127,7 @@
     <main>
       <div class="main-wrapper">
         <div class="logo-wrapper">
-          <img src="/images/logo.png" alt="logo">
+          <img src="/images/logo.png" alt="logo" />
         </div>
         <h1 class="title">Guess The Nation</h1>
         <input type="text" name="input" id="input" placeholder="" />
@@ -132,7 +138,6 @@
         <div class="hint-flag">
           <h3 class="flag-h3">Flag</h3>
         </div>
-        
       </div>
       <div class="legend">
         <p>Flag</p>
@@ -150,7 +155,42 @@
         <button>New Game</button>
       </div>
     </main>
+    <footer>
+      <!-- Quantcast Tag -->
+      <script type="text/javascript">
+        window._qevents = window._qevents || [];
 
+        (function () {
+          var elem = document.createElement("script");
+          elem.src =
+            (document.location.protocol == "https:"
+              ? "https://secure"
+              : "http://edge") + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName("script")[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+        })();
+
+        window._qevents.push({
+          qacct: "p-Mc_JEjc2vUST2",
+          uid: "__INSERT_EMAIL_HERE__",
+        });
+      </script>
+
+      <noscript>
+        <div style="display: none">
+          <img
+            src="//pixel.quantserve.com/pixel/p-Mc_JEjc2vUST2.gif"
+            border="0"
+            height="1"
+            width="1"
+            alt="Quantcast"
+          />
+        </div>
+      </noscript>
+      <!-- End Quantcast tag -->
+    </footer>
 
     <script src="./js/main.js" type="module"></script>
     <script
