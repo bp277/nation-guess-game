@@ -12,17 +12,25 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/site.webmanifest" />
     <title>Guess The Nation</title>
   </head>
   <body>
@@ -93,7 +101,7 @@
     </div>
     <div class="backdrop-flag">
       <div class="modal-flag">
-        <img class="img-flag" style="border-radius: 10px" width="40%" alt="" />
+        <img class="img-flag" style="border-radius: 10px;" width="40%" alt="" />
         <p
           style="
             text-align: center;
@@ -112,6 +120,9 @@
 
     <main>
       <div class="main-wrapper">
+        <div class="logo-wrapper">
+          <img src="/images/logo.png" alt="logo">
+        </div>
         <h1 class="title">Guess The Nation</h1>
         <input type="text" name="input" id="input" placeholder="" />
         <ul class="search-list"></ul>
@@ -121,14 +132,15 @@
         <div class="hint-flag">
           <h3 class="flag-h3">Flag</h3>
         </div>
-        <div class="legend">
-          <p>Flag</p>
-          <p>Continent</p>
-          <p>Subregion</p>
-          <p>Population</p>
-          <p>Size</p>
-          <p>Bordering Countries</p>
-        </div>
+        
+      </div>
+      <div class="legend">
+        <p>Flag</p>
+        <p>Continent</p>
+        <p>Subregion</p>
+        <p>Population</p>
+        <p>Size</p>
+        <p>Bordering Countries</p>
       </div>
       <div class="answers-wrapper">
         <div class="answers"></div>
@@ -138,6 +150,7 @@
         <button>New Game</button>
       </div>
     </main>
+
 
     <script src="./js/main.js" type="module"></script>
     <script

@@ -111,6 +111,22 @@ main {
 
 .main-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-wrapper {
+  width: 100%;
+}
+
+.logo-wrapper > img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto;
+
 }
 
 main .title {
@@ -118,7 +134,8 @@ main .title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #a5c9ca;
-  margin-block: 40px;
+  margin-bottom: 40px;
+  margin-top: 30px;
 }
 
 main input {
