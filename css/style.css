@@ -156,7 +156,7 @@ main input:focus {
   color: #a5c9ca;
 }
 .search-list {
-  width: 30%;
+  width: 390px;
   margin: 0 auto;
   background-color: aliceblue;
   z-index: 1000;
@@ -314,10 +314,6 @@ main input:focus {
     font-size: 30px;
   }
 
-  .list-item {
-    font-size: 18px;
-  }
-
   .answer {
     font-size: 14px;
   }
@@ -329,9 +325,6 @@ main input:focus {
   }
 }
 @media (max-width: 576px) {
-  .list-item {
-    font-size: 14px;
-  }
 
   .answer {
     font-size: 12px;
@@ -381,6 +374,15 @@ main input:focus {
     margin-bottom: 20px;
     font-size: 20px;
   }
+
+  .search-list {
+    width: 300px;
+  }
+
+  .list-item {
+    font-size: 20px;
+  }
+
   .coa,
   .flag-h3 {
     font-size: 20px;
