@@ -75,7 +75,6 @@ body {
 }
 .new-game-ui {
   display: none;
-  margin-top: 20px;
 }
 .new-game button,
 .new-game-ui button {
@@ -109,7 +108,8 @@ header h3,
 }
 main {
   text-align: center;
-  margin-top: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 main .title {
   font-size: 36px;
@@ -183,6 +183,7 @@ main input:focus {
   border-bottom: 2px solid #a5c9ca;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 50px;
 }
 .answers {
   display: flex;
