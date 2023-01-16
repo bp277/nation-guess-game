@@ -74,6 +74,7 @@ function selectCountry(e) {
     if (e.target.innerHTML === allCountries[i].name.common) {
       new Answer(
         allCountries[i].flags.png,
+        allCountries[i].name.common,
         allCountries[i].continents[0],
         allCountries[i].subregion,
         allCountries[i].population,
@@ -83,6 +84,7 @@ function selectCountry(e) {
 
       createAnswer(
         allCountries[i].flags.png,
+        allCountries[i].name.common,
         allCountries[i].continents[0],
         allCountries[i].subregion,
         allCountries[i].population
@@ -113,11 +115,12 @@ function selectCountry(e) {
   }
 }
 
-function selectCountryTwo(answ) {
+function selectCountryEnterKey(answ) {
   for (let i = 0; i < countryInfo.length; i++) {
     if (answ === allCountries[i].name.common) {
       new Answer(
         allCountries[i].flags.png,
+        allCountries[i].name.common,
         allCountries[i].continents[0],
         allCountries[i].subregion,
         allCountries[i].population,
@@ -127,6 +130,7 @@ function selectCountryTwo(answ) {
 
       createAnswer(
         allCountries[i].flags.png,
+        allCountries[i].name.common,
         allCountries[i].continents[0],
         allCountries[i].subregion,
         allCountries[i].population
@@ -171,7 +175,7 @@ $("#input").keyup(function (e) {
   if (e.keyCode == 13) {
     e.preventDefault();
     Navigate(0);
-    selectCountryTwo($('.list-item-selected')[0].innerHTML)
+    selectCountryEnterKey($('.list-item-selected')[0].innerHTML)
     
   }
 });
