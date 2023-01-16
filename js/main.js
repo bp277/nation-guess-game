@@ -165,8 +165,7 @@ function selectCountryEnterKey(answ) {
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
-  let inputValue = $(this).val();
-  inputValue === "" ? $(".search-list").hide() : $(".search-list").show();
+  $(this).val() === "" ? $(".search-list").hide() : $(".search-list").show();
 });
 
 // Keyboard navigation for country list
