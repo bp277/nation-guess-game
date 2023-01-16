@@ -187,6 +187,11 @@ var Navigate = function (diff) {
   if (displayBoxIndex < 0) displayBoxIndex = oBoxCollection.length - 1;
   var cssClass = "list-item-selected";
   oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
+  $("#input").keyup(function (e) {
+    if (e.keyCode == 13) {
+      displayBoxIndex = -1
+    }
+  });
 };
 
 newGame.addEventListener("click", () => {
