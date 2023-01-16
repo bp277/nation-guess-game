@@ -163,6 +163,11 @@ function selectCountryEnterKey(answ) {
   }
 }
 
+// Show/hide search results based on input value
+$("#input").on("input", function () {
+  let inputValue = $(this).val();
+  inputValue === "" ? $(".search-list").hide() : $(".search-list").show();
+});
 
 // Keyboard navigation for country list
 window.displayBoxIndex = -1;
@@ -177,8 +182,7 @@ $("#input").keyup(function (e) {
   if (e.keyCode == 13) {
     e.preventDefault();
     Navigate(0);
-    selectCountryEnterKey($('.list-item-selected')[0].innerHTML)
-    
+    selectCountryEnterKey($(".list-item-selected")[0].innerHTML);
   }
 });
 
@@ -191,7 +195,7 @@ var Navigate = function (diff) {
   oBoxCollection.removeClass(cssClass).eq(displayBoxIndex).addClass(cssClass);
   $("#input").keyup(function (e) {
     if (e.keyCode == 13) {
-      displayBoxIndex = -1
+      displayBoxIndex = -1;
     }
   });
 };
