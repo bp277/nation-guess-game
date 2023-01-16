@@ -191,7 +191,7 @@ main input:focus {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: 328px;
+  bottom: 284px;
 }
 
 .list-item {
@@ -199,7 +199,6 @@ main input:focus {
   padding: 14px;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
-  border-bottom: 1px solid black;
 }
 
 .list-item:hover,
@@ -344,10 +343,6 @@ main input:focus {
     font-size: 30px;
   }
 
-  .search-list {
-    bottom: 343px;
-  }
-
   .answer {
     font-size: 14px;
   }
@@ -360,7 +355,7 @@ main input:focus {
 }
 @media (max-width: 576px) {
   .search-list {
-    bottom: 339px;
+    bottom: 284px;
   }
 
   .answer {
@@ -401,7 +396,7 @@ main input:focus {
 
   .search-list {
     max-height: 146px;
-    bottom: 295px;
+    bottom: 247px;
   }
 
   .legend {
@@ -470,13 +465,6 @@ main input:focus {
     .legend {
       font-size: 9px;
     }
-  }
-}
-
-@media (min-width: 769px) and (max-width: 875px) {
-  .search-list {
-    bottom: 342px;
-
   }
 }
 
