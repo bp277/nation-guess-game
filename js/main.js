@@ -112,8 +112,9 @@ function selectCountry(e) {
     }
     input.value = "";
     searchList.innerHTML = "";
-    searchList.scrollIntoView();
-  }
+    setTimeout(function() {
+      searchList.scrollIntoView();
+    },500)  }
 }
 
 function selectCountryEnterKey(answ) {
