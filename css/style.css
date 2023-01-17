@@ -357,14 +357,14 @@ main input:focus {
   .size.lower::after,
   .borders.lower::after {
     font-size: 14px;
-    top: 46px;
+    top: 41px;
   }
 
   .population.higher::after,
   .size.higher::after,
   .borders.higher::after {
     font-size: 14px;
-    top: 9px;
+    top: 0px;
   }
 }
 @media (max-width: 425px) {
