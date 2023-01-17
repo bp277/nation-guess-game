@@ -19,6 +19,8 @@ const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
 
+answers.scrollIntoView();
+
 // Fetch country data
 async function getCountries() {
   return fetch("https://restcountries.com/v3.1/all").then((res) => res.json());
@@ -113,7 +115,8 @@ function selectCountry(e) {
     input.value = "";
     searchList.innerHTML = "";
     setTimeout(function() {
-      searchList.scrollIntoView();
+      answers.scrollIntoView();
+      answers.scrollTop = answers.scrollHeight
     },500)  }
 }
 
@@ -160,7 +163,8 @@ function selectCountryEnterKey(answ) {
     }
     input.value = "";
     searchList.innerHTML = "";
-    searchList.scrollIntoView();
+    answers.scrollIntoView();
+    answers.scrollTop = answers.scrollHeight
   }
 }
 
@@ -317,6 +321,10 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
 
   answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
 }
+
+//Always show the bottom of the answers
+
+
 //Show How to play
 howToPlay.addEventListener("click", () => {
   backdropTutorial.style.display = "flex";
