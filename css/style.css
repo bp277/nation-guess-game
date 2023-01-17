@@ -139,7 +139,7 @@ main .title {
 }
 
 main input {
-  width: 390px;
+  width: 500px;
   padding: 20px;
   border-radius: 10px;
   border: none;
@@ -210,7 +210,6 @@ main input:focus {
 
 .answers-wrapper {
   display: block;
-  border-top: 2px solid #a5c9ca;
   border-bottom: 2px solid #a5c9ca;
   margin-left: 10px;
   margin-right: 10px;
@@ -220,6 +219,7 @@ main input:focus {
 .answers {
   margin: 0 auto;
   background-color: #395b64;
+  border-top: 2px solid #a5c9ca;
   max-height: 344px;
   overflow: auto;
 }
@@ -310,28 +310,7 @@ main input:focus {
   left: 0;
 }
 
-/* Scrollbar */
 
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #a5c9ca;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #a5c9ca;
-}
 
 @media (max-width: 768px) {
   .tutorial-modal {
@@ -353,6 +332,11 @@ main input:focus {
   }
 }
 @media (max-width: 576px) {
+  main input {
+    width: 90%
+  }
+
+
   .search-list {
     bottom: 284px;
   }
@@ -373,14 +357,14 @@ main input:focus {
   .size.lower::after,
   .borders.lower::after {
     font-size: 14px;
-    top: 41px;
+    top: 46px;
   }
 
   .population.higher::after,
   .size.higher::after,
   .borders.higher::after {
     font-size: 14px;
-    top: 2px;
+    top: 9px;
   }
 }
 @media (max-width: 425px) {
@@ -403,14 +387,6 @@ main input:focus {
   }
   .tutorial-modal {
     width: 80%;
-  }
-  main input {
-    width: 300px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 20px;
-    font-size: 20px;
   }
 
   .search-list {
