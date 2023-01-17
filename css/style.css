@@ -218,10 +218,10 @@ main input:focus {
 }
 
 .answers {
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   background-color: #395b64;
+  max-height: 344px;
+  overflow: auto;
 }
 
 .answer,
@@ -255,7 +255,6 @@ main input:focus {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   color: #fff;
-  border-right: 1px solid #2c3333;
   padding: 5px;
   position: relative;
 }
