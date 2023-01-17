@@ -92,8 +92,7 @@ function selectCountry(e) {
         allCountries[i].population
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-        allCountries[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-          " km²",
+        allCountries[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
         allCountries[i].borders.length
       );
 
@@ -141,8 +140,7 @@ function selectCountryEnterKey(answ) {
         allCountries[i].population
           .toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-        allCountries[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-          " km²",
+        allCountries[i].area.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
         allCountries[i].borders.length
       );
 
