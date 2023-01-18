@@ -320,9 +320,6 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
   answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
 }
 
-//Always show the bottom of the answers
-
-
 //Show How to play
 howToPlay.addEventListener("click", () => {
   backdropTutorial.style.display = "flex";
@@ -351,7 +348,17 @@ backdrop.addEventListener("click", () => {
 document.querySelector('.show-hints').addEventListener("click", () => {
   document.querySelector('.hints').style.display = "flex";
   document.querySelector('.show-hints').style.display = 'none'
+  document.querySelector('.show-hints').classList.add('showing')
 })
+
+// Don;t show country list if input is not in focus
+window.addEventListener('click', function(e){   
+  if (document.querySelector('.input-wrapper').contains(e.target)){
+    searchList.style.display = 'block';
+  } else{
+    searchList.style.display = 'none';
+  }
+});
 
 let correctAnswer =
   JSON.parse(localStorage.getItem("correctAnswer")) ||
