@@ -191,7 +191,7 @@ main input:focus {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: 284px;
+  bottom: 45px;
 }
 
 .list-item {
@@ -338,7 +338,7 @@ main input:focus {
 
 
   .search-list {
-    bottom: 284px;
+    bottom: 45px;
   }
   
   .answers {
@@ -383,7 +383,7 @@ main input:focus {
 
   .search-list {
     max-height: 146px;
-    bottom: 247px;
+    bottom: 49px;
   }
 
   .legend {
