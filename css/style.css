@@ -340,7 +340,11 @@ main input:focus {
   .search-list {
     bottom: 284px;
   }
-
+  
+  .answers {
+    max-height: 242px;
+  }
+  
   .answer {
     font-size: 12px;
   }
