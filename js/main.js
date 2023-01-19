@@ -204,17 +204,8 @@ var Navigate = function (diff) {
   });
 };
 
-//Reset the game at 10am and 10pm
-window.setInterval(function(){ 
-  var date = new Date();
-  if(date.getHours() === 15 && date.getMinutes() === 20){
-    location.reload();
-    id = null;
-    localStorage.clear();  }
-}, 60000);
-
-
-  console.log(now.getSeconds());
+if(now.getHours() === 15 && now.getMinutes() === 0 && now.getSeconds() === 0 || now.getHours() === 15 && now.getMinutes() === 10 && now.getSeconds() === 0) {}
+  
 newGame.addEventListener("click", () => {
   location.reload();
   id = null;
@@ -386,5 +377,3 @@ let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
 
 answers.innerHTML = data;
-
-console.log(correctAnswer);
