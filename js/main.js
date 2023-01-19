@@ -207,7 +207,7 @@ var Navigate = function (diff) {
 //Reset the game at 10am and 10pm
 window.setInterval(function(){ 
   var date = new Date();
-  if(date.getHours() === 16 && date.getMinutes() === 5){
+  if(date.getHours() === 15 && date.getMinutes() === 20){
     location.reload();
     id = null;
     localStorage.clear();  }
