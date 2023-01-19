@@ -21,6 +21,8 @@ const modalFlag = document.querySelector(".img-flag");
 
 answers.scrollIntoView();
 
+let now = new Date();
+
 // Fetch country data
 async function getCountries() {
   return fetch("https://restcountries.com/v3.1/all").then((res) => res.json());
@@ -202,6 +204,17 @@ var Navigate = function (diff) {
   });
 };
 
+//Reset the game at 10am and 10pm
+window.setInterval(function(){ 
+  var date = new Date();
+  if(date.getHours() === 16 && date.getMinutes() === 5){
+    location.reload();
+    id = null;
+    localStorage.clear();  }
+}, 60000);
+
+
+  console.log(now.getSeconds());
 newGame.addEventListener("click", () => {
   location.reload();
   id = null;
@@ -373,3 +386,5 @@ let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
 
 answers.innerHTML = data;
+
+console.log(correctAnswer);
