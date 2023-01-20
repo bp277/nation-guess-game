@@ -209,12 +209,16 @@ if(now.getHours() === 15 && now.getMinutes() === 0 && now.getSeconds() === 0 || 
 newGame.addEventListener("click", () => {
   location.reload();
   id = null;
-  localStorage.clear();
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
 });
 newGameUI.addEventListener("click", () => {
   location.reload();
   id = null;
-  localStorage.clear();
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
 });
 
 if (searchList) {
