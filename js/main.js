@@ -19,8 +19,6 @@ const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
 
-answers.scrollIntoView();
-
 let now = new Date();
 
 // Fetch country data
@@ -212,6 +210,7 @@ newGame.addEventListener("click", () => {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 });
 newGameUI.addEventListener("click", () => {
   location.reload();
@@ -219,6 +218,7 @@ newGameUI.addEventListener("click", () => {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 });
 
 if (searchList) {
