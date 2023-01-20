@@ -408,5 +408,8 @@ const nextMidnight = new Date(
 const timeToMidnight = nextMidnight - today;
 
 setTimeout(() => {
-  localStorage.clear();
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
 }, timeToMidnight);
