@@ -103,12 +103,14 @@ function selectCountry(e) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       }
     }
     input.value = "";
@@ -151,12 +153,14 @@ function selectCountryEnterKey(answ) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       }
     }
     input.value = "";
@@ -165,7 +169,9 @@ function selectCountryEnterKey(answ) {
     answers.scrollTop = answers.scrollHeight
   }
 }
-
+if (localStorage.getItem("inputDisabled") === "true") {
+  input.setAttribute("disabled", "true");
+} 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
   $(this).val() === "" ? $(".search-list").hide() : $(".search-list").show();
@@ -392,3 +398,15 @@ let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
 
 answers.innerHTML = data;
+
+const nextMidnight = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate() + 1, // the next day
+  0, 0, 0 // 00:00
+);
+const timeToMidnight = nextMidnight - today;
+
+setTimeout(() => {
+  localStorage.clear();
+}, timeToMidnight);
