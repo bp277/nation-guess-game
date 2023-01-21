@@ -383,4 +383,6 @@ input.placeholder = `${guessData ? guessData : 0} of 8`;
 answers.innerHTML = data;
 
 // Scroll to the last submitted answer on page load
-answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
+if (answers.childNodes.length > 1) {
+  answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
+}
