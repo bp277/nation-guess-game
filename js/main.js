@@ -103,14 +103,12 @@ function selectCountry(e) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
-        input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
-        input.disabled = true;
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -156,14 +154,12 @@ function selectCountryEnterKey(answ) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
-        input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
-        input.disabled = true;
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -221,7 +217,7 @@ newGame.addEventListener("click", () => {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
+  localStorage.removeItem("inputDisabled");
 });
 newGameUI.addEventListener("click", () => {
   location.reload();
@@ -229,6 +225,7 @@ newGameUI.addEventListener("click", () => {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
 });
 
 if (searchList) {
