@@ -201,8 +201,6 @@ var Navigate = function (diff) {
     }
   });
 };
-
-if(now.getHours() === 15 && now.getMinutes() === 0 && now.getSeconds() === 0 || now.getHours() === 15 && now.getMinutes() === 10 && now.getSeconds() === 0) {}
   
 newGame.addEventListener("click", () => {
   location.reload();

@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   list-style-type: none !important;
+  text-decoration: none;
 }
 body {
   background-color: #2c3333;
@@ -8,6 +9,11 @@ body {
   position: relative;
   height: 118vh;
 }
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
 .backdrop,
 .backdrop-tutorial,
 .backdrop-coa,
@@ -186,19 +192,26 @@ main input {
 .hint-flag,
 .coats-of-arms {
   display: grid;
-  place-items: center;
+  background-color: #617070;
+  border-radius: 5px;
+}
+
+.hint-flag:hover,
+.coats-of-arms:hover {
+  background-color: #687878;
 }
 
 .coa,
 .flag-h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
-  margin-block: 20px;
-  text-decoration: underline;
+  padding-block: 15px;
   cursor: pointer;
-  color: #a5c9ca;
+  color: #ffffff;
   font-weight: 700;
   width: fit-content;
+  width: 225px;
+  transition: background-color 0.2s ease;
 }
 
 .correct-name {
