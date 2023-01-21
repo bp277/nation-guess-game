@@ -413,6 +413,11 @@ main input {
   .search-list {
     max-width: 300px;
   }
+
+  .hints {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
   
   .answers {
     max-height: 242px;
