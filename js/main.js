@@ -381,3 +381,6 @@ let guessData = localStorage.getItem("guessNum");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
 
 answers.innerHTML = data;
+
+// Scroll to the last submitted answer on page load
+answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
