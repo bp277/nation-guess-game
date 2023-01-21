@@ -13,11 +13,6 @@ body {
 body::-webkit-scrollbar{
   display: none;
 }
-
-header {
-  position: relative;
-}
-
 .backdrop,
 .backdrop-tutorial,
 .backdrop-coa,
@@ -126,6 +121,9 @@ header {
   padding: 20px;
   background: #395b64;
   position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 header h3,
 .status {
@@ -144,14 +142,7 @@ main {
 }
 
 .contact-info {
-  position: absolute;
-  top: 0;
-  left: 280px;
-  right: 0;
-  margin: 0 auto; 
-  height: 100%;
-  display: grid;
-  place-items: center;
+  display: block;
 }
 
 .envelope {
