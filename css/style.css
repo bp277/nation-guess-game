@@ -145,8 +145,10 @@ main {
 
 .contact-info {
   position: absolute;
-  right: 20px;
   top: 0;
+  left: 280px;
+  right: 0;
+  margin: 0 auto; 
   height: 100%;
   display: grid;
   place-items: center;
@@ -156,6 +158,9 @@ main {
   color: #fff;
   font-family: 'Monsterrat', sans-serif;
   font-size: 16px;
+  background-color: #a5c9ca;
+  padding: 7px;
+  border-radius: 5px;
 }
 
 .main-wrapper {
