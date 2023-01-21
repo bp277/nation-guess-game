@@ -103,20 +103,25 @@ function selectCountry(e) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       }
     }
     input.value = "";
     searchList.innerHTML = "";
-    setTimeout(function() {
+    setTimeout(function () {
       answers.scrollIntoView();
-      answers.scrollTop = answers.scrollHeight
-    },500)  }
+      answers.scrollTop = answers.scrollHeight;
+    }, 500);
+  }
 }
 
 function selectCountryEnterKey(answ) {
@@ -151,20 +156,28 @@ function selectCountryEnterKey(answ) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        input.disabled = true;
+        localStorage.setItem("inputDisabled", true);
       }
     }
     input.value = "";
     searchList.innerHTML = "";
     answers.scrollIntoView();
-    answers.scrollTop = answers.scrollHeight
+    answers.scrollTop = answers.scrollHeight;
   }
 }
+
+if (localStorage.getItem("inputDisabled") === "true") {
+  input.setAttribute("disabled", "true");
+}   
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -201,13 +214,14 @@ var Navigate = function (diff) {
     }
   });
 };
-  
+
 newGame.addEventListener("click", () => {
   location.reload();
   id = null;
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 });
 newGameUI.addEventListener("click", () => {
@@ -216,6 +230,7 @@ newGameUI.addEventListener("click", () => {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 });
 
@@ -241,7 +256,7 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
   flagImg.setAttribute("height", "45px");
   const countryName = document.createElement("div");
   flag.appendChild(countryName);
-  countryName.textContent = name
+  countryName.textContent = name;
 
   const continent = document.createElement("div");
   continent.classList.add("continent");
@@ -351,18 +366,18 @@ backdrop.addEventListener("click", () => {
 });
 
 //Show Hints
-document.querySelector('.show-hints').addEventListener("click", () => {
-  document.querySelector('.hints').style.display = "flex";
-  document.querySelector('.show-hints').style.display = 'none'
-  document.querySelector('.show-hints').classList.add('showing')
-})
+document.querySelector(".show-hints").addEventListener("click", () => {
+  document.querySelector(".hints").style.display = "flex";
+  document.querySelector(".show-hints").style.display = "none";
+  document.querySelector(".show-hints").classList.add("showing");
+});
 
 // Don;t show country list if input is not in focus
-window.addEventListener('click', function(e){   
-  if (document.querySelector('.input-wrapper').contains(e.target)){
-    searchList.style.display = 'block';
-  } else{
-    searchList.style.display = 'none';
+window.addEventListener("click", function (e) {
+  if (document.querySelector(".input-wrapper").contains(e.target)) {
+    searchList.style.display = "block";
+  } else {
+    searchList.style.display = "none";
   }
 });
 
