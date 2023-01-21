@@ -30,9 +30,18 @@ const fetchedCountries = await getCountries();
 const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
-let guessNumber = 0;
+
+let numberOfCorrectAnswers = 0
+localStorage.setItem("numberOfCorrectAnswers", numberOfCorrectAnswers);
 
 let countryInfo = [];
+
+function updateUserStats() {
+  numberOfCorrectAnswers = parseInt(localStorage.getItem("numberOfCorrectAnswers"))
+  numberOfCorrectAnswers++
+  localStorage.setItem("numberOfCorrectAnswers", numberOfCorrectAnswers);
+  console.log(localStorage.getItem("numberOfCorrectAnswers"))
+}
 
 for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
@@ -104,6 +113,7 @@ function selectCountry(e) {
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
+        updateUserStats()
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
@@ -154,6 +164,7 @@ function selectCountryEnterKey(answ) {
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
+        updateUserStats()
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
@@ -212,13 +223,17 @@ var Navigate = function (diff) {
 newGame.addEventListener("click", () => {
   location.reload();
   id = null;
-  localStorage.clear();
-});
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");});
 newGameUI.addEventListener("click", () => {
   location.reload();
   id = null;
-  localStorage.clear();
-});
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");});
 
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
@@ -407,9 +422,19 @@ const nextMidnight = new Date(
 );
 const timeToMidnight = nextMidnight - today;
 
-setTimeout(() => {
+function clearStorageEveryMidnight() {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
   localStorage.removeItem("inputDisabled");
+}
+
+setTimeout(() => {
+  clearStorageEveryMidnight(); 
+  setTimeout(() => {
+    clearStorageEveryMidnight();
+  }, 5000);
 }, timeToMidnight);
+
+
+console.log(timeToMidnight);
