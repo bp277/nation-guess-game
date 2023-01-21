@@ -210,15 +210,13 @@ newGame.addEventListener("click", () => {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
-});
+  });
 newGameUI.addEventListener("click", () => {
   location.reload();
   id = null;
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
 });
 
 if (searchList) {
