@@ -82,10 +82,13 @@ body::-webkit-scrollbar{
 }
 
 .arrow-container {
-  width: 30px;
   background-color: #222;
   border-radius: 15px;
-  padding: 10px
+  padding: 7px
+}
+
+.arrow {
+  width: 15px;
 }
 
 .new-game {
@@ -409,7 +412,7 @@ main input {
     flex-direction: column-reverse;
     gap: 15px;
   }
-  
+
   .answers {
     max-height: 242px;
   }
