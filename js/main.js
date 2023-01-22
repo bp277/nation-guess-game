@@ -19,8 +19,6 @@ const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
 
-let now = new Date();
-
 // Fetch country data
 async function getCountries() {
   return fetch("https://restcountries.com/v3.1/all").then((res) => res.json());
@@ -30,7 +28,6 @@ const fetchedCountries = await getCountries();
 const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
-let guessNumber = 0;
 
 let countryInfo = [];
 
