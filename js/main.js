@@ -170,7 +170,7 @@ function selectCountryEnterKey(answ) {
 
 if (localStorage.getItem("inputDisabled") === "true") {
   input.setAttribute("disabled", "true");
-}   
+}
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -372,9 +372,52 @@ window.addEventListener("click", function (e) {
   }
 });
 
+// Daily country reset
+let futureAnswers = [
+  75, 64, 170, 85, 32, 54, 61, 29, 6, 17, 89, 14, 19, 57, 55, 5, 70, 97, 10,
+  139, 128, 67, 47, 116, 49, 134, 38, 125, 82, 23, 4, 22, 129, 101, 124, 15, 81,
+  118, 77, 166, 130, 52, 3, 109, 147, 28, 111, 181, 73, 98, 187, 174, 121, 153,
+  48, 80, 74, 11, 168, 12, 62, 185, 142, 115, 108, 25, 138, 88, 160, 93, 179,
+  161, 171, 33, 104, 53, 164, 151, 167, 13, 99, 58, 68, 105, 178, 20, 24, 189,
+  177, 51, 2, 159, 56, 40, 1, 131, 136, 100, 103, 63, 76, 137, 42, 183, 84, 165,
+  36, 83, 65, 110, 140, 133, 37, 0, 46, 135, 191, 173, 117, 96, 71, 41, 90, 27,
+  143, 190, 21, 87, 112, 7, 16, 126, 72, 94, 26, 45, 163, 79, 43, 59, 18, 102,
+  60, 92, 35, 78, 141, 114, 154, 106, 156, 95, 50, 180, 184, 31, 182, 69, 145,
+  146, 169, 186, 122, 9, 66, 107, 120, 30, 113, 148, 127, 192, 8, 175, 34, 149,
+  44, 155, 132, 86, 162, 91, 39, 172, 158, 188, 157, 119, 150, 144, 152, 176,
+  123,
+];
+
+const today = new Date();
+const currentDay = today.getDate();
+
 let correctAnswer =
-  JSON.parse(localStorage.getItem("correctAnswer")) ||
-  countryInfo[Math.floor(Math.random() * countryInfo.length)];
+  countryInfo[futureAnswers[currentDay % futureAnswers.length]];
+
+const nextMidnight = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate() + 1, // the next day
+  0,
+  0,
+  0 // 00:00
+);
+const timeToMidnight = nextMidnight - today;
+
+function clearStorageEveryMidnight() {
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
+}
+
+setTimeout(() => {
+  clearStorageEveryMidnight();
+  setTimeout(() => {
+    clearStorageEveryMidnight();
+  }, 5000);
+}, timeToMidnight);
+
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
