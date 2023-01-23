@@ -208,23 +208,6 @@ var Navigate = function (diff) {
   });
 };
 
-newGame.addEventListener("click", () => {
-  location.reload();
-  id = null;
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");
-});
-newGameUI.addEventListener("click", () => {
-  location.reload();
-  id = null;
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");
-});
-
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
 }
@@ -328,8 +311,6 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
 
   localStorage.setItem("guessNum", answers.childNodes.length);
   input.placeholder = `${answers.childNodes.length} of 8`;
-
-  answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
 }
 
 //Show How to play
@@ -421,7 +402,6 @@ setTimeout(() => {
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
-newGameUI.style.display = "block";
 
 let data = localStorage.getItem("myAnswers");
 let guessData = localStorage.getItem("guessNum");
