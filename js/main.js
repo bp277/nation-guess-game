@@ -29,6 +29,8 @@ const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
 
+let playedToday = false;
+
 let countryInfo = [];
 
 for (let i = 0; i < allCountries.length; i++) {
@@ -99,6 +101,7 @@ function selectCountry(e) {
         status.textContent = "You Win";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
+        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
@@ -106,6 +109,7 @@ function selectCountry(e) {
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
+        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -150,6 +154,7 @@ function selectCountryEnterKey(answ) {
         status.textContent = "You Win";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
+        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
@@ -157,6 +162,7 @@ function selectCountryEnterKey(answ) {
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
+        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -171,6 +177,11 @@ function selectCountryEnterKey(answ) {
 if (localStorage.getItem("inputDisabled") === "true") {
   input.setAttribute("disabled", "true");
 }
+
+localStorage.getItem("playedToday") === "true"
+  ? (playedToday = true)
+  : (playedToday = false);
+
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -383,13 +394,14 @@ const nextMidnight = new Date(
   0,
   0 // 00:00
 );
-const timeToMidnight = nextMidnight - today;
+let timeToMidnight = nextMidnight - today;
 
 function clearStorageEveryMidnight() {
   localStorage.removeItem("myAnswers");
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
   localStorage.removeItem("inputDisabled");
+  localStorage.setItem("playedToday", false);
 }
 
 setTimeout(() => {
@@ -412,4 +424,29 @@ answers.innerHTML = data;
 // Scroll to the last submitted answer on page load
 if (answers.childNodes.length > 1) {
   answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
+}
+
+// Time until game resets
+const countdown = document.querySelector(".countdown");
+
+let intervalId = setInterval(function () {
+  let date = new Date(timeToMidnight);
+  let hours = date.getUTCHours().toString().padStart(2, "0");
+  let minutes = date.getUTCMinutes().toString().padStart(2, "0");
+  let seconds = date.getUTCSeconds().toString().padStart(2, "0");
+  countdown.textContent = `New mystery nation in
+   ${hours}:${minutes}:${seconds}`;
+  timeToMidnight -= 1000;
+  if (timeToMidnight < 0) {
+    clearInterval(intervalId);
+    location.reload();
+  }
+}, 1000);
+
+// Show the correct answer if the game has ended
+if (playedToday === true) {
+  backdrop.style.display = "flex";
+  status.textContent = "You Win";
+  correctName.textContent = correctAnswer[1];
+  correctFlag.src = correctAnswer[0];
 }
