@@ -48,6 +48,7 @@ function userLostContent() {
   localStorage.setItem("lostToday", true);
 }
 
+
 for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
     allCountries[i].flags.png,

@@ -474,7 +474,6 @@ main input {
   }
 
   .backdrop .modal {
-    height: 400px;
     width: 300px;
   }
   .status {
