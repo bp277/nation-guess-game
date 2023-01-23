@@ -10,7 +10,7 @@ body {
   height: 118vh;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 .backdrop,
@@ -48,6 +48,11 @@ body::-webkit-scrollbar{
   top: 370px;
   animation: append-animate 0.2s ease;
 }
+
+.backdrop .modal {
+  height: 420px;
+}
+
 .tutorial-modal h2 {
   font-size: 30px;
   text-align: center;
@@ -84,7 +89,7 @@ body::-webkit-scrollbar{
 .arrow-container {
   background-color: #222;
   border-radius: 15px;
-  padding: 7px
+  padding: 7px;
 }
 
 .arrow {
@@ -98,7 +103,8 @@ body::-webkit-scrollbar{
   display: none;
 }
 .new-game button,
-.new-game-ui button, .show-hints {
+.new-game-ui button,
+.show-hints {
   padding: 10px;
   width: 150px;
   border: none;
@@ -111,7 +117,8 @@ body::-webkit-scrollbar{
   transition: background-color 0.2s ease;
 }
 .new-game button:hover,
-.new-game-ui button:hover, .show-hints:hover {
+.new-game-ui button:hover,
+.show-hints:hover {
   background-color: rgb(34, 157, 120);
 }
 
@@ -149,8 +156,8 @@ main {
 }
 
 .envelope {
-  color: #395B64;
-  font-family: 'Monsterrat', sans-serif;
+  color: #395b64;
+  font-family: "Monsterrat", sans-serif;
   font-size: 16px;
   background-color: #a5c9ca;
   padding: 7px;
@@ -173,7 +180,6 @@ main {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
-
 }
 
 main .title {
@@ -370,8 +376,6 @@ main input {
   left: 0;
 }
 
-
-
 @media (max-width: 768px) {
   .tutorial-modal {
     font-size: 16px;
@@ -401,7 +405,7 @@ main input {
 }
 @media (max-width: 576px) {
   main input {
-    width: 90%
+    width: 90%;
   }
 
   .search-list {
@@ -416,7 +420,7 @@ main input {
   .answers {
     max-height: 242px;
   }
-  
+
   .answer {
     font-size: 12px;
   }
@@ -442,6 +446,20 @@ main input {
     font-size: 14px;
     top: 0px;
   }
+
+  .backdrop .modal {
+    height: 350px;
+    width: 300px;
+  }
+  .status {
+    font-size: 16px;
+  }
+  .correct-name {
+    font-size: 20px;
+  }
+  .correct-flag {
+    width: 75%;
+  }
 }
 @media (max-width: 425px) {
   .flag,
@@ -464,13 +482,9 @@ main input {
   .flag-h3 {
     font-size: 20px;
   }
-  .flag img {
-    width: 50px;
-    height: 35px;
-  }
+
   .backdrop-coa .modal-coa,
-  .backdrop-flag .modal-flag,
-  .backdrop .modal {
+  .backdrop-flag .modal-flag {
     width: 350px;
     height: 450px;
   }
