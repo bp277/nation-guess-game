@@ -29,9 +29,6 @@ const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
 
-let numberOfCorrectAnswers = 0
-localStorage.setItem("numberOfCorrectAnswers", numberOfCorrectAnswers);
-
 let countryInfo = [];
 
 function updateUserStats() {
@@ -111,7 +108,6 @@ function selectCountry(e) {
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
-        updateUserStats()
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
@@ -123,10 +119,11 @@ function selectCountry(e) {
     }
     input.value = "";
     searchList.innerHTML = "";
-    setTimeout(function() {
+    setTimeout(function () {
       answers.scrollIntoView();
-      answers.scrollTop = answers.scrollHeight
-    },500)  }
+      answers.scrollTop = answers.scrollHeight;
+    }, 500);
+  }
 }
 
 function selectCountryEnterKey(answ) {
@@ -162,7 +159,6 @@ function selectCountryEnterKey(answ) {
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
-        updateUserStats()
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
@@ -175,12 +171,14 @@ function selectCountryEnterKey(answ) {
     input.value = "";
     searchList.innerHTML = "";
     answers.scrollIntoView();
-    answers.scrollTop = answers.scrollHeight
+    answers.scrollTop = answers.scrollHeight;
   }
 }
+
 if (localStorage.getItem("inputDisabled") === "true") {
   input.setAttribute("disabled", "true");
-} 
+}
+
 // Show/hide search results based on input value
 $("#input").on("input", function () {
   $(this).val() === "" ? $(".search-list").hide() : $(".search-list").show();
@@ -217,22 +215,6 @@ var Navigate = function (diff) {
   });
 };
 
-  
-newGame.addEventListener("click", () => {
-  location.reload();
-  id = null;
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");});
-newGameUI.addEventListener("click", () => {
-  location.reload();
-  id = null;
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");});
-
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
 }
@@ -255,7 +237,7 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
   flagImg.setAttribute("height", "45px");
   const countryName = document.createElement("div");
   flag.appendChild(countryName);
-  countryName.textContent = name
+  countryName.textContent = name;
 
   const continent = document.createElement("div");
   continent.classList.add("continent");
@@ -336,8 +318,6 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
 
   localStorage.setItem("guessNum", answers.childNodes.length);
   input.placeholder = `${answers.childNodes.length} of 8`;
-
-  answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
 }
 
 //Show How to play
@@ -365,21 +345,22 @@ backdrop.addEventListener("click", () => {
 });
 
 //Show Hints
-document.querySelector('.show-hints').addEventListener("click", () => {
-  document.querySelector('.hints').style.display = "flex";
-  document.querySelector('.show-hints').style.display = 'none'
-  document.querySelector('.show-hints').classList.add('showing')
-})
+document.querySelector(".show-hints").addEventListener("click", () => {
+  document.querySelector(".hints").style.display = "flex";
+  document.querySelector(".show-hints").style.display = "none";
+  document.querySelector(".show-hints").classList.add("showing");
+});
 
 // Don;t show country list if input is not in focus
-window.addEventListener('click', function(e){   
-  if (document.querySelector('.input-wrapper').contains(e.target)){
-    searchList.style.display = 'block';
-  } else{
-    searchList.style.display = 'none';
+window.addEventListener("click", function (e) {
+  if (document.querySelector(".input-wrapper").contains(e.target)) {
+    searchList.style.display = "block";
+  } else {
+    searchList.style.display = "none";
   }
 });
 
+// Daily country reset
 let futureAnswers = [
   75, 64, 170, 85, 32, 54, 61, 29, 6, 17, 89, 14, 19, 57, 55, 5, 70, 97, 10,
   139, 128, 67, 47, 116, 49, 134, 38, 125, 82, 23, 4, 22, 129, 101, 124, 15, 81,
@@ -398,25 +379,16 @@ let futureAnswers = [
 const today = new Date();
 const currentDay = today.getDate();
 
-let correctAnswer = countryInfo[futureAnswers[currentDay % futureAnswers.length]];
-console.log(correctAnswer);
-
-localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
-imgCoa.src = correctAnswer[7];
-modalFlag.src = correctAnswer[0];
-newGameUI.style.display = "block";
-
-let data = localStorage.getItem("myAnswers");
-let guessData = localStorage.getItem("guessNum");
-input.placeholder = `${guessData ? guessData : 0} of 8`;
-
-answers.innerHTML = data;
+let correctAnswer =
+  countryInfo[futureAnswers[currentDay % futureAnswers.length]];
 
 const nextMidnight = new Date(
   today.getFullYear(),
   today.getMonth(),
   today.getDate() + 1, // the next day
-  0, 0, 0 // 00:00
+  0,
+  0,
+  0 // 00:00
 );
 const timeToMidnight = nextMidnight - today;
 
@@ -428,11 +400,23 @@ function clearStorageEveryMidnight() {
 }
 
 setTimeout(() => {
-  clearStorageEveryMidnight(); 
+  clearStorageEveryMidnight();
   setTimeout(() => {
     clearStorageEveryMidnight();
   }, 5000);
 }, timeToMidnight);
 
+localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
+imgCoa.src = correctAnswer[7];
+modalFlag.src = correctAnswer[0];
 
-console.log(timeToMidnight);
+let data = localStorage.getItem("myAnswers");
+let guessData = localStorage.getItem("guessNum");
+input.placeholder = `${guessData ? guessData : 0} of 8`;
+
+answers.innerHTML = data;
+
+// Scroll to the last submitted answer on page load
+if (answers.childNodes.length > 1) {
+  answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
+}
