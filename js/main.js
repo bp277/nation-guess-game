@@ -437,7 +437,7 @@ if (answers.childNodes.length > 1) {
 // Time until game resets
 const countdown = document.querySelector(".countdown");
 
-let intervalId = setInterval(function () {
+function setCountdown() {
   let date = new Date(timeToMidnight);
   let hours = date.getUTCHours().toString().padStart(2, "0");
   let minutes = date.getUTCMinutes().toString().padStart(2, "0");
@@ -449,7 +449,10 @@ let intervalId = setInterval(function () {
     clearInterval(intervalId);
     location.reload();
   }
-}, 1000);
+}
+
+setCountdown()
+let intervalId = setInterval(setCountdown, 1000);
 
 // Show the correct answer if the game has ended
 if (wonToday === true) {
