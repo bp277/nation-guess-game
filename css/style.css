@@ -244,6 +244,7 @@ main input {
 
 .correct-name {
   font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   font-size: 24px;
   color: #a5c9ca;
 }
@@ -260,6 +261,11 @@ main input {
 
 .correct-flag {
   width: 200px;
+}
+
+.countdown {
+  color: #fff;
+  font-size: 18px;
 }
 
 .search-list {
@@ -422,6 +428,10 @@ main input {
 @media (max-width: 576px) {
   main input {
     width: 90%;
+  }
+
+  .countdown {
+    font-size: 14px;
   }
 
   .search-list {

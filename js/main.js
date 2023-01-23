@@ -29,20 +29,23 @@ const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
 
-let playedToday = false;
+let wonToday = false;
+let lostToday = false
 
 let countryInfo = [];
 
 function userWonContent() {
-  status.textContent = "Congrats";
+  status.textContent = "Congrats!";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
+  localStorage.setItem("wonToday", true);
 }
 
 function userLostContent() {
   status.textContent = "So Close...";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
+  localStorage.setItem("lostToday", true);
 }
 
 for (let i = 0; i < allCountries.length; i++) {
@@ -111,13 +114,11 @@ function selectCountry(e) {
       if (e.target.innerHTML === correctAnswer[1]) {
         backdrop.style.display = "flex";
         userWonContent();
-        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         userLostContent()
-        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -160,13 +161,11 @@ function selectCountryEnterKey(answ) {
       if (answ === correctAnswer[1]) {
         backdrop.style.display = "flex";
         userWonContent()
-        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         userLostContent()
-        localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -182,9 +181,13 @@ if (localStorage.getItem("inputDisabled") === "true") {
   input.setAttribute("disabled", "true");
 }
 
-localStorage.getItem("playedToday") === "true"
-  ? (playedToday = true)
-  : (playedToday = false);
+localStorage.getItem("wonToday") === "true"
+  ? (wonToday = true)
+  : (wonToday = false);
+
+  localStorage.getItem("lostToday") === "true"
+  ? (lostToday = true)
+  : (lostToday = false);
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -404,7 +407,8 @@ function clearStorageEveryMidnight() {
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
   localStorage.removeItem("inputDisabled");
-  localStorage.setItem("playedToday", false);
+  localStorage.setItem("wonToday", false);
+  localStorage.setItem("lostToday", false);
 }
 
 setTimeout(() => {
@@ -447,9 +451,16 @@ let intervalId = setInterval(function () {
 }, 1000);
 
 // Show the correct answer if the game has ended
-if (playedToday === true) {
+if (wonToday === true) {
   backdrop.style.display = "flex";
-  status.textContent = "You Win";
+  status.textContent = "Congrats!";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
 }
+if (lostToday === true) {
+  backdrop.style.display = "flex";
+  status.textContent = "So close...";
+  correctName.textContent = correctAnswer[1];
+  correctFlag.src = correctAnswer[0];
+}
+
