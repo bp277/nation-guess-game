@@ -33,6 +33,18 @@ let playedToday = false;
 
 let countryInfo = [];
 
+function userWonContent() {
+  status.textContent = "Congrats";
+  correctName.textContent = correctAnswer[1];
+  correctFlag.src = correctAnswer[0];
+}
+
+function userLostContent() {
+  status.textContent = "So Close...";
+  correctName.textContent = correctAnswer[1];
+  correctFlag.src = correctAnswer[0];
+}
+
 for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
     allCountries[i].flags.png,
@@ -98,17 +110,13 @@ function selectCountry(e) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (e.target.innerHTML === correctAnswer[1]) {
         backdrop.style.display = "flex";
-        status.textContent = "You Win";
-        correctName.textContent = correctAnswer[1];
-        correctFlag.src = correctAnswer[0];
+        userWonContent();
         localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        status.textContent = "Game Over";
-        correctName.textContent = correctAnswer[1];
-        correctFlag.src = correctAnswer[0];
+        userLostContent()
         localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
@@ -151,17 +159,13 @@ function selectCountryEnterKey(answ) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (answ === correctAnswer[1]) {
         backdrop.style.display = "flex";
-        status.textContent = "You Win";
-        correctName.textContent = correctAnswer[1];
-        correctFlag.src = correctAnswer[0];
+        userWonContent()
         localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        status.textContent = "Game Over";
-        correctName.textContent = correctAnswer[1];
-        correctFlag.src = correctAnswer[0];
+        userLostContent()
         localStorage.setItem("playedToday", true);
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
@@ -181,7 +185,6 @@ if (localStorage.getItem("inputDisabled") === "true") {
 localStorage.getItem("playedToday") === "true"
   ? (playedToday = true)
   : (playedToday = false);
-
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
