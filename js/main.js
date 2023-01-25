@@ -125,7 +125,7 @@ function selectCountry(e) {
     }
     input.value = "";
     searchList.innerHTML = "";
-    
+
     answers.scrollIntoView();
     answers.scrollTop = answers.scrollHeight;
   }
@@ -464,4 +464,8 @@ if (lostToday === true) {
   status.textContent = "So close...";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
+}
+// Go to top of the page on reload
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
 }
