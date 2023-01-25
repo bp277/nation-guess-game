@@ -30,7 +30,7 @@ const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 let id = null;
 
 let wonToday = false;
-let lostToday = false
+let lostToday = false;
 
 let countryInfo = [];
 
@@ -47,7 +47,6 @@ function userLostContent() {
   correctFlag.src = correctAnswer[0];
   localStorage.setItem("lostToday", true);
 }
-
 
 for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
@@ -119,17 +118,16 @@ function selectCountry(e) {
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        userLostContent()
+        userLostContent();
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
     }
     input.value = "";
     searchList.innerHTML = "";
-    setTimeout(function () {
-      answers.scrollIntoView();
-      answers.scrollTop = answers.scrollHeight;
-    }, 500);
+    
+    answers.scrollIntoView();
+    answers.scrollTop = answers.scrollHeight;
   }
 }
 
@@ -161,12 +159,12 @@ function selectCountryEnterKey(answ) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (answ === correctAnswer[1]) {
         backdrop.style.display = "flex";
-        userWonContent()
+        userWonContent();
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        userLostContent()
+        userLostContent();
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -186,7 +184,7 @@ localStorage.getItem("wonToday") === "true"
   ? (wonToday = true)
   : (wonToday = false);
 
-  localStorage.getItem("lostToday") === "true"
+localStorage.getItem("lostToday") === "true"
   ? (lostToday = true)
   : (lostToday = false);
 
@@ -451,7 +449,7 @@ function setCountdown() {
   }
 }
 
-setCountdown()
+setCountdown();
 let intervalId = setInterval(setCountdown, 1000);
 
 // Show the correct answer if the game has ended
@@ -467,4 +465,3 @@ if (lostToday === true) {
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
 }
-

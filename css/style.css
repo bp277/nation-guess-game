@@ -548,10 +548,13 @@ main input {
 }
 
 @keyframes append-animate {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  80% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -568,20 +571,20 @@ main input {
 
 /* Answer animation */
 .flag {
-  animation: append-animate 0.4s linear;
+  animation: append-animate 0.2s linear;
 }
 .continent {
-  animation: append-animate 0.7s linear;
+  animation: append-animate 0.4s linear;
 }
 .subregion {
-  animation: append-animate 1s linear;
+  animation: append-animate 0.6s linear;
 }
 .population {
-  animation: append-animate 1.3s linear;
+  animation: append-animate 0.8s linear;
 }
 .size {
-  animation: append-animate 1.6s linear;
+  animation: append-animate 1s linear;
 }
 .borders {
-  animation: append-animate 1.9s linear;
+  animation: append-animate 1.2s linear;
 }
