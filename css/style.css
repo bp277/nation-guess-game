@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
   border-radius: 10px;
   text-align: center;
   position: absolute;
-  top: 370px;
+  top: 200px;
   animation: append-animate 0.2s ease;
 }
 
@@ -53,6 +53,7 @@ body::-webkit-scrollbar {
   height: 500px;
   padding-left: 20px;
   padding-right: 20px;
+  animation: animate-backdrop 0.4s ease;
 }
 
 .tutorial-modal h2 {
@@ -552,6 +553,16 @@ main input {
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes animate-backdrop {
+  from {
+    opacity: 0;
+    transform: translateY(500px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
