@@ -100,14 +100,14 @@ function selectCountry(e) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
-        localStorage.setItem("inputDisabled", true);
+        localStorage.setItem("inputDisabledPractice", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
-        localStorage.setItem("inputDisabled", true);
+        localStorage.setItem("inputDisabledPractice", true);
       }
     }
     input.value = "";
@@ -151,14 +151,14 @@ function selectCountryEnterKey(answ) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
-        localStorage.setItem("inputDisabled", true);
+        localStorage.setItem("inputDisabledPractice", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
         status.textContent = "Game Over";
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
-        localStorage.setItem("inputDisabled", true);
+        localStorage.setItem("inputDisabledPractice", true);
       }
     }
     input.value = "";
@@ -168,7 +168,7 @@ function selectCountryEnterKey(answ) {
   }
 }
 
-if (localStorage.getItem("inputDisabled") === "true") {
+if (localStorage.getItem("inputDisabledPractice") === "true") {
   input.setAttribute("disabled", "true");
 }   
 
@@ -211,18 +211,18 @@ var Navigate = function (diff) {
 newGame.addEventListener("click", () => {
   location.reload();
   id = null;
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");
+  localStorage.removeItem("myAnswersPractice");
+  localStorage.removeItem("guessNumPractice");
+  localStorage.removeItem("correctAnswerPractice");
+  localStorage.removeItem("inputDisabledPractice");
 });
 newGameUI.addEventListener("click", () => {
   location.reload();
   id = null;
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");
+  localStorage.removeItem("myAnswersPractice");
+  localStorage.removeItem("guessNumPractice");
+  localStorage.removeItem("correctAnswerPractice");
+  localStorage.removeItem("inputDisabledPractice");
 });
 
 if (searchList) {
@@ -324,9 +324,9 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
   } else if (parseInt(bordersPara.innerHTML) == correctAnswer[6].length) {
     borders.classList.add("success");
   }
-  localStorage.setItem("myAnswers", answers.innerHTML);
+  localStorage.setItem("myAnswersPractice", answers.innerHTML);
 
-  localStorage.setItem("guessNum", answers.childNodes.length);
+  localStorage.setItem("guessNumPractice", answers.childNodes.length);
   input.placeholder = `${answers.childNodes.length} of 8`;
 
   answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
@@ -361,15 +361,15 @@ window.addEventListener("click", function (e) {
 });
 
 let correctAnswer =
-  JSON.parse(localStorage.getItem("correctAnswer")) ||
+  JSON.parse(localStorage.getItem("correctAnswerPractice")) ||
   countryInfo[Math.floor(Math.random() * countryInfo.length)];
-localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
+localStorage.setItem("correctAnswerPractice", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
 newGameUI.style.display = "block";
 
-let data = localStorage.getItem("myAnswers");
-let guessData = localStorage.getItem("guessNum");
+let data = localStorage.getItem("myAnswersPractice");
+let guessData = localStorage.getItem("guessNumPractice");
 input.placeholder = `${guessData ? guessData : 0} of 8`;
 
 answers.innerHTML = data;
