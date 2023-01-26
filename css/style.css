@@ -149,8 +149,13 @@ header h3,
 }
 
 .mode {
-  color: #fff;
+  color: #a5c9ca;
   font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.mode:hover {
+  transform: scale(0.95)
 }
 
 main {
