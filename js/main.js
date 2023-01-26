@@ -431,8 +431,7 @@ function setCountdown() {
   let hours = date.getUTCHours().toString().padStart(2, "0");
   let minutes = date.getUTCMinutes().toString().padStart(2, "0");
   let seconds = date.getUTCSeconds().toString().padStart(2, "0");
-  countdown.textContent = `New mystery nation in
-   ${hours}:${minutes}:${seconds}`;
+  countdown.textContent = `${hours}:${minutes}:${seconds}`;
   timeToMidnight -= 1000;
   if (timeToMidnight < 0) {
     clearInterval(intervalId);

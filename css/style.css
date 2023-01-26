@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 }
 
 .backdrop .modal {
-  height: 500px;
+  height: 600px;
   padding-left: 20px;
   padding-right: 20px;
   animation: animate-backdrop 0.4s ease;
@@ -268,10 +268,16 @@ main input {
 .correct-flag {
   width: 200px;
 }
+.countdown-text {
+  color: #fff;
+  font-size: 18px;
+}
 
 .countdown {
   color: #fff;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Economica', sans-serif;
 }
 
 .search-list {
