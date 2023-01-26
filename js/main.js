@@ -3,7 +3,6 @@ import { Answer } from "./answer.js";
 const input = document.querySelector("#input");
 const answers = document.querySelector(".answers");
 const searchList = document.querySelector(".search-list");
-const selectedCountry = document.querySelector(".list-item-selected");
 const backdrop = document.querySelector(".backdrop");
 const backdropCoa = document.querySelector(".backdrop-coa");
 const backdropFlag = document.querySelector(".backdrop-flag");
