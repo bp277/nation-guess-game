@@ -342,22 +342,10 @@ coatsOfArms.addEventListener("click", () => {
 backdropCoa.addEventListener("click", () => {
   backdropCoa.style.display = "none";
 });
-//Show Flag
-hintFlag.addEventListener("click", () => {
-  backdropFlag.style.display = "flex";
-});
-backdropFlag.addEventListener("click", () => {
-  backdropFlag.style.display = "none";
-});
+
+// Close end game modal on click
 backdrop.addEventListener("click", () => {
   backdrop.style.display = "none";
-});
-
-//Show Hints
-document.querySelector(".show-hints").addEventListener("click", () => {
-  document.querySelector(".hints").style.display = "flex";
-  document.querySelector(".show-hints").style.display = "none";
-  document.querySelector(".show-hints").classList.add("showing");
 });
 
 backdrop.addEventListener("click", () => {

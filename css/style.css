@@ -218,11 +218,11 @@ main input {
   margin-bottom: 50px;
 }
 
-.hint-flag,
 .coats-of-arms {
   display: grid;
   background-color: #617070;
   border-radius: 5px;
+  margin-bottom: 70px;
 }
 
 .hint-flag:hover,
@@ -230,8 +230,7 @@ main input {
   background-color: #687878;
 }
 
-.coa,
-.flag-h3 {
+.coa {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
   padding-block: 15px;
