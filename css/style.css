@@ -106,7 +106,8 @@ body::-webkit-scrollbar {
   display: none;
 }
 .new-game button,
-.new-game-ui button {
+.new-game-ui button,
+.show-hints {
   padding: 10px;
   width: 150px;
   border: none;
@@ -119,8 +120,13 @@ body::-webkit-scrollbar {
   transition: background-color 0.2s ease;
 }
 .new-game button:hover,
-.new-game-ui button:hover {
+.new-game-ui button:hover,
+.show-hints:hover {
   background-color: rgb(34, 157, 120);
+}
+
+.show-hints {
+  margin-bottom: 50px;
 }
 
 header {
@@ -202,18 +208,30 @@ main input {
   outline: none;
 }
 
+.hints {
+  display: none;
+  justify-content: center;
+  gap: 50px;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.hint-flag,
 .coats-of-arms {
   display: grid;
   background-color: #617070;
   border-radius: 5px;
-  margin-bottom: 50px;
 }
 
+.hint-flag:hover,
 .coats-of-arms:hover {
   background-color: #687878;
 }
 
-.coa {
+.coa,
+.flag-h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
   padding-block: 15px;
@@ -221,7 +239,7 @@ main input {
   color: #ffffff;
   font-weight: 700;
   width: fit-content;
-  width: 280px;
+  width: 225px;
   transition: background-color 0.2s ease;
 }
 
@@ -421,6 +439,11 @@ main input {
     max-width: 300px;
   }
 
+  .hints {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
   .answers {
     max-height: 242px;
   }
@@ -485,7 +508,6 @@ main input {
   .coa,
   .flag-h3 {
     font-size: 20px;
-    width: 230px;
   }
 
   .backdrop-coa .modal-coa,

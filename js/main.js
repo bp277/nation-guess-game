@@ -3,6 +3,7 @@ import { Answer } from "./answer.js";
 const input = document.querySelector("#input");
 const answers = document.querySelector(".answers");
 const searchList = document.querySelector(".search-list");
+const selectedCountry = document.querySelector(".list-item-selected");
 const backdrop = document.querySelector(".backdrop");
 const backdropCoa = document.querySelector(".backdrop-coa");
 const backdropFlag = document.querySelector(".backdrop-flag");
@@ -14,6 +15,7 @@ const correctFlag = document.querySelector(".correct-flag");
 const newGame = document.querySelector(".new-game");
 const newGameUI = document.querySelector(".new-game-ui");
 const coatsOfArms = document.querySelector(".coa");
+const hintFlag = document.querySelector(".flag-h3");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
 
@@ -340,6 +342,23 @@ coatsOfArms.addEventListener("click", () => {
 });
 backdropCoa.addEventListener("click", () => {
   backdropCoa.style.display = "none";
+});
+//Show Flag
+hintFlag.addEventListener("click", () => {
+  backdropFlag.style.display = "flex";
+});
+backdropFlag.addEventListener("click", () => {
+  backdropFlag.style.display = "none";
+});
+backdrop.addEventListener("click", () => {
+  backdrop.style.display = "none";
+});
+
+//Show Hints
+document.querySelector(".show-hints").addEventListener("click", () => {
+  document.querySelector(".hints").style.display = "flex";
+  document.querySelector(".show-hints").style.display = "none";
+  document.querySelector(".show-hints").classList.add("showing");
 });
 
 backdrop.addEventListener("click", () => {
