@@ -554,6 +554,19 @@ main input {
     opacity: 1;
   }
 }
+
+@keyframes animate-answer {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes animate-backdrop {
   from {
     opacity: 0;
@@ -567,20 +580,20 @@ main input {
 
 /* Answer animation */
 .flag {
-  animation: append-animate 0.2s linear;
+  animation: animate-answer 0.4s linear;
 }
 .continent {
-  animation: append-animate 0.4s linear;
+  animation: animate-answer 0.6s linear;
 }
 .subregion {
-  animation: append-animate 0.6s linear;
+  animation: animate-answer 0.8s linear;
 }
 .population {
-  animation: append-animate 0.8s linear;
+  animation: animate-answer 1s linear;
 }
 .size {
-  animation: append-animate 1s linear;
+  animation: animate-answer 1.2s linear;
 }
 .borders {
-  animation: append-animate 1.2s linear;
+  animation: animate-answer 1.4s linear;
 }
