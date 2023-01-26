@@ -431,7 +431,7 @@ main input {
   }
 
   .backdrop-tutorial {
-    height: 140vh;
+    height: 140%;
   }
 
   li > span {
