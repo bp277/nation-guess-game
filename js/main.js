@@ -27,8 +27,8 @@ const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
 
-let wonToday = "false";
-let lostToday = "false";
+let wonToday = false;
+let lostToday = false;
 
 let countryInfo = [];
 
@@ -36,14 +36,14 @@ function userWonContent() {
   status.textContent = "Congrats!";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
-  localStorage.setItem("wonToday", "true");
+  localStorage.setItem("wonToday", true);
 }
 
 function userLostContent() {
   status.textContent = "So Close...";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
-  localStorage.setItem("lostToday", "true");
+  localStorage.setItem("lostToday", true);
 }
 
 for (let i = 0; i < allCountries.length; i++) {
@@ -179,12 +179,12 @@ if (localStorage.getItem("inputDisabled") === "true") {
 }
 
 localStorage.getItem("wonToday") === "true"
-  ? (wonToday = "true")
-  : (wonToday = "false");
+  ? (wonToday = true)
+  : (wonToday = false);
 
 localStorage.getItem("lostToday") === "true"
-  ? (lostToday = "true")
-  : (lostToday = "false");
+  ? (lostToday = true)
+  : (lostToday = false);
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -387,8 +387,8 @@ function clearStorageEveryMidnight() {
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
   localStorage.removeItem("inputDisabled");
-  localStorage.setItem("wonToday", "false");
-  localStorage.setItem("lostToday", "false");
+  localStorage.setItem("wonToday", false);
+  localStorage.setItem("lostToday", false);
 }
 
 setTimeout(() => {
@@ -434,13 +434,13 @@ setCountdown();
 let intervalId = setInterval(setCountdown, 1000);
 
 // Show the correct answer if the game has ended
-if (wonToday === "true") {
+if (wonToday === true) {
   backdrop.style.display = "flex";
   status.textContent = "Congrats!";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
 }
-if (lostToday === "true") {
+if (lostToday === true) {
   backdrop.style.display = "flex";
   status.textContent = "So close...";
   correctName.textContent = correctAnswer[1];
@@ -450,4 +450,3 @@ if (lostToday === "true") {
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
-
