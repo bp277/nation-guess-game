@@ -5,7 +5,6 @@ const answers = document.querySelector(".answers");
 const searchList = document.querySelector(".search-list");
 const backdrop = document.querySelector(".backdrop");
 const backdropCoa = document.querySelector(".backdrop-coa");
-const backdropFlag = document.querySelector(".backdrop-flag");
 const howToPlay = document.querySelector(".htp");
 const backdropTutorial = document.querySelector(".backdrop-tutorial");
 const correctName = document.querySelector(".correct-name");
@@ -17,6 +16,8 @@ const coatsOfArms = document.querySelector(".coa");
 const imgCoa = document.querySelector(".img-coa");
 const modalFlag = document.querySelector(".img-flag");
 
+let now = new Date();
+
 // Fetch country data
 async function getCountries() {
   return fetch("https://restcountries.com/v3.1/all").then((res) => res.json());
@@ -26,25 +27,9 @@ const fetchedCountries = await getCountries();
 const allCountries = fetchedCountries.filter((c) => c.unMember == true);
 
 let id = null;
-
-let wonToday = 'false';
-let lostToday = 'false';
+let guessNumber = 0;
 
 let countryInfo = [];
-
-function userWonContent() {
-  status.textContent = "Congrats!";
-  correctName.textContent = correctAnswer[1];
-  correctFlag.src = correctAnswer[0];
-  localStorage.setItem("wonToday", 'true');
-}
-
-function userLostContent() {
-  status.textContent = "So Close...";
-  correctName.textContent = correctAnswer[1];
-  correctFlag.src = correctAnswer[0];
-  localStorage.setItem("lostToday", 'true');
-}
 
 for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
@@ -111,21 +96,26 @@ function selectCountry(e) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (e.target.innerHTML === correctAnswer[1]) {
         backdrop.style.display = "flex";
-        userWonContent();
+        status.textContent = "You Win";
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        userLostContent();
+        status.textContent = "Game Over";
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
     }
     input.value = "";
     searchList.innerHTML = "";
-
-    answers.scrollIntoView();
-    answers.scrollTop = answers.scrollHeight;
+    setTimeout(function () {
+      answers.scrollIntoView();
+      answers.scrollTop = answers.scrollHeight;
+    }, 500);
   }
 }
 
@@ -157,12 +147,16 @@ function selectCountryEnterKey(answ) {
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
       if (answ === correctAnswer[1]) {
         backdrop.style.display = "flex";
-        userWonContent();
+        status.textContent = "You Win";
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
-        userLostContent();
+        status.textContent = "Game Over";
+        correctName.textContent = correctAnswer[1];
+        correctFlag.src = correctAnswer[0];
         input.disabled = true;
         localStorage.setItem("inputDisabled", true);
       }
@@ -176,15 +170,7 @@ function selectCountryEnterKey(answ) {
 
 if (localStorage.getItem("inputDisabled") === "true") {
   input.setAttribute("disabled", "true");
-}
-
-localStorage.getItem("wonToday") === "true"
-  ? (wonToday = 'true')
-  : (wonToday = 'false');
-
-localStorage.getItem("lostToday") === "true"
-  ? (lostToday = 'true')
-  : (lostToday = 'false');
+}   
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -221,6 +207,23 @@ var Navigate = function (diff) {
     }
   });
 };
+
+newGame.addEventListener("click", () => {
+  location.reload();
+  id = null;
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
+});
+newGameUI.addEventListener("click", () => {
+  location.reload();
+  id = null;
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
+});
 
 if (searchList) {
   searchList.addEventListener("click", selectCountry);
@@ -325,6 +328,8 @@ function createAnswer(flg, name, cont, subreg, pop, siz, bord) {
 
   localStorage.setItem("guessNum", answers.childNodes.length);
   input.placeholder = `${answers.childNodes.length} of 8`;
+
+  answers.childNodes.length === 8 ? (newGameUI.style.display = "block") : false;
 }
 
 //Show How to play
@@ -333,8 +338,7 @@ howToPlay.addEventListener("click", () => {
 });
 backdropTutorial.addEventListener("click", () => {
   backdropTutorial.style.display = "none";
-}); 
-//Show Coats Of Arms
+}); //Show Coats Of Arms
 coatsOfArms.addEventListener("click", () => {
   backdropCoa.style.display = "flex";
 });
@@ -342,14 +346,10 @@ backdropCoa.addEventListener("click", () => {
   backdropCoa.style.display = "none";
 });
 
-// Close end game modal on click
 backdrop.addEventListener("click", () => {
   backdrop.style.display = "none";
 });
 
-backdrop.addEventListener("click", () => {
-  backdrop.style.display = "none";
-});
 
 // Don;t show country list if input is not in focus
 window.addEventListener("click", function (e) {
@@ -360,57 +360,13 @@ window.addEventListener("click", function (e) {
   }
 });
 
-// Daily country reset
-let futureAnswers = [
-  75, 64, 170, 85, 32, 54, 61, 29, 6, 17, 89, 14, 19, 57, 55, 5, 70, 97, 10,
-  139, 128, 67, 47, 116, 49, 134, 38, 125, 82, 23, 4, 22, 129, 101, 124, 15, 81,
-  118, 77, 166, 130, 52, 3, 109, 147, 28, 111, 181, 73, 98, 187, 174, 121, 153,
-  48, 80, 74, 11, 168, 12, 62, 185, 142, 115, 108, 25, 138, 88, 160, 93, 179,
-  161, 171, 33, 104, 53, 164, 151, 167, 13, 99, 58, 68, 105, 178, 20, 24, 189,
-  177, 51, 2, 159, 56, 40, 1, 131, 136, 100, 103, 63, 76, 137, 42, 183, 84, 165,
-  36, 83, 65, 110, 140, 133, 37, 0, 46, 135, 191, 173, 117, 96, 71, 41, 90, 27,
-  143, 190, 21, 87, 112, 7, 16, 126, 72, 94, 26, 45, 163, 79, 43, 59, 18, 102,
-  60, 92, 35, 78, 141, 114, 154, 106, 156, 95, 50, 180, 184, 31, 182, 69, 145,
-  146, 169, 186, 122, 9, 66, 107, 120, 30, 113, 148, 127, 192, 8, 175, 34, 149,
-  44, 155, 132, 86, 162, 91, 39, 172, 158, 188, 157, 119, 150, 144, 152, 176,
-  123,
-];
-
-const today = new Date();
-const currentDay = today.getDate();
-
 let correctAnswer =
-  countryInfo[futureAnswers[currentDay % futureAnswers.length]];
-
-const nextMidnight = new Date(
-  today.getFullYear(),
-  today.getMonth(),
-  today.getDate() + 1, // the next day
-  0,
-  0,
-  0 // 00:00
-);
-let timeToMidnight = nextMidnight - today;
-
-function clearStorageEveryMidnight() {
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");
-  localStorage.setItem("wonToday", 'false');
-  localStorage.setItem("lostToday", 'false');
-}
-
-setTimeout(() => {
-  clearStorageEveryMidnight();
-  setTimeout(() => {
-    clearStorageEveryMidnight();
-  }, 5000);
-}, timeToMidnight);
-
+  JSON.parse(localStorage.getItem("correctAnswer")) ||
+  countryInfo[Math.floor(Math.random() * countryInfo.length)];
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
+newGameUI.style.display = "block";
 
 let data = localStorage.getItem("myAnswers");
 let guessData = localStorage.getItem("guessNum");
@@ -421,42 +377,4 @@ answers.innerHTML = data;
 // Scroll to the last submitted answer on page load
 if (answers.childNodes.length > 1) {
   answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
-}
-
-// Time until game resets
-const countdown = document.querySelector(".countdown");
-
-function setCountdown() {
-  let date = new Date(timeToMidnight);
-  let hours = date.getUTCHours().toString().padStart(2, "0");
-  let minutes = date.getUTCMinutes().toString().padStart(2, "0");
-  let seconds = date.getUTCSeconds().toString().padStart(2, "0");
-  countdown.textContent = `New mystery nation in
-   ${hours}:${minutes}:${seconds}`;
-  timeToMidnight -= 1000;
-  if (timeToMidnight < 0) {
-    clearInterval(intervalId);
-    location.reload();
-  }
-}
-
-setCountdown();
-let intervalId = setInterval(setCountdown, 1000);
-
-// Show the correct answer if the game has ended
-if (wonToday === 'true') {
-  backdrop.style.display = "flex";
-  status.textContent = "Congrats!";
-  correctName.textContent = correctAnswer[1];
-  correctFlag.src = correctAnswer[0];
-}
-if (lostToday === 'true') {
-  backdrop.style.display = "flex";
-  status.textContent = "So close...";
-  correctName.textContent = correctAnswer[1];
-  correctFlag.src = correctAnswer[0];
-}
-// Go to top of the page on reload
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
 }

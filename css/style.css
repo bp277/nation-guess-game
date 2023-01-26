@@ -136,6 +136,7 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 50px;
 }
 header h3,
@@ -145,6 +146,12 @@ header h3,
   font-size: 20px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.mode {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: underline;
 }
 
 main {
