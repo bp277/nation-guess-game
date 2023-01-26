@@ -170,7 +170,7 @@ function selectCountryEnterKey(answ) {
 
 if (localStorage.getItem("inputDisabledPractice") === "true") {
   input.setAttribute("disabled", "true");
-}   
+}
 
 // Show/hide search results based on input value
 $("#input").on("input", function () {
@@ -349,7 +349,6 @@ backdropCoa.addEventListener("click", () => {
 backdrop.addEventListener("click", () => {
   backdrop.style.display = "none";
 });
-
 
 // Don;t show country list if input is not in focus
 window.addEventListener("click", function (e) {
