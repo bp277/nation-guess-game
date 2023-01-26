@@ -155,7 +155,7 @@ header h3,
 }
 
 .mode:hover {
-  transform: scale(0.95)
+  transform: scale(0.95);
 }
 
 main {
@@ -165,8 +165,19 @@ main {
   position: relative;
 }
 
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+}
+
 .contact-info {
   display: block;
+  margin-left: auto;
+  position: absolute;
+  right: 20px;
+  top: 27px;
 }
 
 .envelope {
@@ -260,7 +271,6 @@ main input {
   color: #a5c9ca;
 }
 
-
 .correct-flag-wrapper {
   width: 100%;
   height: 160px;
@@ -282,7 +292,7 @@ main input {
   color: #fff;
   font-size: 32px;
   font-weight: 700;
-  font-family: 'Economica', sans-serif;
+  font-family: "Economica", sans-serif;
 }
 
 .search-list {
