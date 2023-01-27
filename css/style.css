@@ -525,7 +525,7 @@ main input {
   .population,
   .size,
   .borders {
-    font-size: 8px;
+    font-size: 10px !important;
   }
 
   .legend {
