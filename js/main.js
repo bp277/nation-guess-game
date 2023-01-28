@@ -404,8 +404,8 @@ function clearStorageEveryMidnight() {
   localStorage.removeItem("guessNum");
   localStorage.removeItem("correctAnswer");
   localStorage.removeItem("inputDisabled");
-  localStorage.removeItem("wonToday");
-  localStorage.removeItem("lostToday");
+  wonToday = false
+  lostToday = false
 }
 
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
