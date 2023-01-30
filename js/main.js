@@ -392,21 +392,21 @@ const nextMidnight = new Date(
 );
 let timeToMidnight = nextMidnight - today;
 
-function clearStorageEveryMidnight() {
-  localStorage.removeItem("myAnswers");
-  localStorage.removeItem("guessNum");
-  localStorage.removeItem("correctAnswer");
-  localStorage.removeItem("inputDisabled");
-  localStorage.setItem("wonToday", "false");
-  localStorage.setItem("lostToday", "false");
-}
-
 setTimeout(() => {
   clearStorageEveryMidnight();
   setTimeout(() => {
     clearStorageEveryMidnight();
   }, 5000);
 }, timeToMidnight);
+
+function clearStorageEveryMidnight() {
+  localStorage.removeItem("myAnswers");
+  localStorage.removeItem("guessNum");
+  localStorage.removeItem("correctAnswer");
+  localStorage.removeItem("inputDisabled");
+  localStorage.removeItem("wonToday");
+  localStorage.removeItem("lostToday");
+}
 
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
@@ -435,7 +435,6 @@ function setCountdown() {
   timeToMidnight -= 1000;
   if (timeToMidnight < 0) {
     clearInterval(intervalId);
-    location.reload();
   }
 }
 
@@ -459,3 +458,4 @@ if (lostToday === "true") {
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
+console.log(wonToday);
