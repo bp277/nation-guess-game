@@ -382,26 +382,17 @@ const currentDay = today.getDate();
 let correctAnswer =
   countryInfo[futureAnswers[currentDay % futureAnswers.length]];
 
-const nextMidnight = new Date(
-  today.getFullYear(),
-  today.getMonth(),
-  today.getDate() + 1, // the next day
-  0,
-  0,
-  0 // 00:00
-);
-let timeToMidnight = nextMidnight - today;
+// Get the current time
+var now = new Date();
 
-setTimeout(() => {
-  clearStorageEveryMidnight();
-  setTimeout(() => {
-    clearStorageEveryMidnight();
-  }, 5000);
-}, timeToMidnight);
+// Get the number of milliseconds until midnight
+var timeUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0) - now;
 
-function clearStorageEveryMidnight() {
-  localStorage.clear()
-}
+// Use setTimeout to execute a function that clears the local storage after the calculated time until midnight
+setTimeout(function() {
+  localStorage.clear();
+}, timeUntilMidnight);
+
 
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
@@ -422,19 +413,19 @@ if (answers.childNodes.length > 1) {
 const countdown = document.querySelector(".countdown");
 
 function setCountdown() {
-  let date = new Date(timeToMidnight);
+  let date = new Date(timeUntilMidnight);
   let hours = date.getUTCHours().toString().padStart(2, "0");
   let minutes = date.getUTCMinutes().toString().padStart(2, "0");
   let seconds = date.getUTCSeconds().toString().padStart(2, "0");
   countdown.textContent = `${hours}:${minutes}:${seconds}`;
-  timeToMidnight -= 1000;
-  if (timeToMidnight < 0) {
+  timeUntilMidnight -= 1000;
+  if (timeUntilMidnight < 0) {
     clearInterval(intervalId);
   }
 }
 
-setCountdown();
 let intervalId = setInterval(setCountdown, 1000);
+setCountdown();
 
 // Show the correct answer if the game has ended
 if (wonToday === "true") {
