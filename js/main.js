@@ -380,13 +380,11 @@ const today = new Date();
 const currentDay = today.getDate();
 
 let correctAnswer =
-  countryInfo[futureAnswers[currentDay % futureAnswers.length]];
+  countryInfo[futureAnswers[0]];
 
-// Get the current time
-var now = new Date();
 
 // Get the number of milliseconds until midnight
-var timeUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0) - now;
+var timeUntilMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 0, 0, 0, 0) - today;
 
 // Use setTimeout to execute a function that clears the local storage after the calculated time until midnight
 setTimeout(function() {
@@ -444,3 +442,5 @@ if (lostToday === "true") {
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 };
+
+console.log(correctAnswer);
