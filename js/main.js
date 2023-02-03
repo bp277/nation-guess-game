@@ -387,7 +387,7 @@ const today = new Date();
 const currentDay = today.getDate();
 
 let correctAnswer =
-  countryInfo[futureAnswers[0]];
+  countryInfo[0];
 
 
 // Get the number of milliseconds until midnight
