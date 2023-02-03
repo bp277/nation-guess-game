@@ -59,6 +59,7 @@ for (let i = 0; i < allCountries.length; i++) {
       : allCountries[i].borders,
     allCountries[i].coatOfArms.png,
   ]);
+  countryInfo.sort()
 }
 
 //Searching and Submiting answer
