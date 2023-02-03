@@ -59,7 +59,7 @@ for (let i = 0; i < allCountries.length; i++) {
       : allCountries[i].borders,
     allCountries[i].coatOfArms.png,
   ]);
-  countryInfo.sort()
+  countryInfo.sort();
 }
 
 //Searching and Submiting answer
@@ -383,15 +383,17 @@ const currentDay = today.getDate();
 let correctAnswer =
   countryInfo[futureAnswers[currentDay % futureAnswers.length]];
 
-
 // Get the number of milliseconds until midnight
-var timeUntilMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 0, 0, 0, 0) - today;
-
-// Use setTimeout to execute a function that clears the local storage after the calculated time until midnight
-setTimeout(function() {
-  localStorage.clear();
-}, timeUntilMidnight);
-
+var timeUntilMidnight =
+  new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 1,
+    0,
+    0,
+    0,
+    0
+  ) - today;
 
 localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
@@ -439,9 +441,8 @@ if (lostToday === "true") {
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
 }
-// Go to top of the page on reload
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
 
-console.log(correctAnswer);
+// Use setTimeout to execute a function that clears the local storage after the calculated time until midnight
+setTimeout(function () {
+  localStorage.clear();
+}, timeUntilMidnight);
