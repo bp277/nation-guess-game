@@ -360,6 +360,13 @@ window.addEventListener("click", function (e) {
   }
 });
 
+function generateRandomCountry() {
+  return Math.floor(Math.random() * 193);
+}
+
+let randomCountry = generateRandomCountry();
+
+
 // Daily country reset
 let futureAnswers = [
   75, 64, 170, 85, 32, 54, 61, 29, 6, 17, 89, 14, 19, 57, 55, 5, 70, 97, 10,
