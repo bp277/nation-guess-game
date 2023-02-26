@@ -445,5 +445,5 @@ if (lostToday === "true") {
 // Use setTimeout to execute a function that clears the local storage after the calculated time until midnight
 setTimeout(function () {
   localStorage.clear();
-  answers.innerHTML = "";
+  data = ''
 }, timeUntilMidnight);
