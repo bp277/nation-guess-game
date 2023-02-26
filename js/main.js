@@ -422,6 +422,7 @@ function setCountdown() {
   timeUntilMidnight -= 1000;
   if (timeUntilMidnight < 0) {
     clearInterval(intervalId);
+    answers.innerHTML = "";
   }
 }
 
