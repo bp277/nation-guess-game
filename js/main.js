@@ -444,20 +444,22 @@ if (lostToday === "true") {
 
 function isFirstVisitToday() {
   const today = new Date().toLocaleDateString();
-  let lastVisitDate = localStorage.getItem('lastVisitDate');
-  if (!lastVisitDate || lastVisitDate !== today) {
-    localStorage.setItem('lastVisitDate', today);
-    return true;
-  }
-  return false;
-}
-
-if (isFirstVisitToday()) {
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key)) {
-      localStorage.removeItem(key);
-    }
-  }
+  const lastVisitDate = localStorage.getItem('lastVisitDate');
+  localStorage.setItem('lastVisitDate', today);
+  return today !== lastVisitDate;
 }
 
 
+
+function clearLocalStorage() {
+  localStorage.clear();
+  localStorage.setItem('lastVisitDate', new Date().toLocaleDateString());
+  localStorage.setItem('wonToday', 'false');
+  localStorage.setItem('lostToday', 'false');
+}
+
+window.onload = function() {
+  if (isFirstVisitToday()) {
+    clearLocalStorage();
+  }
+};
