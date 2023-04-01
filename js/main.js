@@ -395,7 +395,6 @@ var timeUntilMidnight =
     0
   ) - today;
 
-localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 imgCoa.src = correctAnswer[7];
 modalFlag.src = correctAnswer[0];
 
@@ -422,8 +421,7 @@ function setCountdown() {
   timeUntilMidnight -= 1000;
   if (timeUntilMidnight < 0) {
     clearInterval(intervalId);
-    localStorage.clear();
-    location.reload();  
+    location.reload();
   }
 }
 
@@ -444,9 +442,22 @@ if (lostToday === "true") {
   correctFlag.src = correctAnswer[0];
 }
 
-// Use setTimeout to execute a function that clears the local storage after the calculated time until midnight
-setTimeout(function () {
-  
-  localStorage.clear();
-}, 86400000);
+function isFirstVisitToday() {
+  const today = new Date().toLocaleDateString();
+  let lastVisitDate = localStorage.getItem('lastVisitDate');
+  if (!lastVisitDate || lastVisitDate !== today) {
+    localStorage.setItem('lastVisitDate', today);
+    return true;
+  }
+  return false;
+}
+
+if (isFirstVisitToday()) {
+  for (let key in localStorage) {
+    if (localStorage.hasOwnProperty(key)) {
+      localStorage.removeItem(key);
+    }
+  }
+}
+
 
