@@ -71,29 +71,7 @@
       href="images/favicon-16x16.png"
     />
     <link rel="manifest" href="images/site.webmanifest" />
-    <script type="module" defer>
-      function isFirstVisitToday() {
-        const today = new Date().toLocaleDateString();
-        let lastVisitDate = localStorage.getItem("lastVisitDate");
-        if (!lastVisitDate) {
-          lastVisitDate = document.cookie.replace(
-            /(?:(?:^|.*;\s*)lastVisitDate\s*\=\s*([^;]*).*$)|^.*$/,
-            "$1"
-          );
-          localStorage.setItem("lastVisitDate", lastVisitDate);
-        }
-        if (lastVisitDate !== today) {
-          document.cookie = `lastVisitDate=${today}; max-age=86400; path=/`;
-          localStorage.setItem("lastVisitDate", today);
-          return true;
-        }
-        return false;
-      }
-
-      if (isFirstVisitToday()) {
-        localStorage.clear();
-      }
-    </script>
+    <script src="/js/dailyReset.js" type="module" defer></script>
     <title>NationGuess - Unveil the secret country!</title>
   </head>
   <body>
