@@ -442,24 +442,5 @@ if (lostToday === "true") {
   correctFlag.src = correctAnswer[0];
 }
 
-function isFirstVisitToday() {
-  const today = new Date().toLocaleDateString();
-  const lastVisitDate = localStorage.getItem('lastVisitDate');
-  localStorage.setItem('lastVisitDate', today);
-  return today !== lastVisitDate;
-}
 
 
-
-function clearLocalStorage() {
-  localStorage.clear();
-  localStorage.setItem('lastVisitDate', new Date().toLocaleDateString());
-  localStorage.setItem('wonToday', 'false');
-  localStorage.setItem('lostToday', 'false');
-}
-
-window.onload = function() {
-  if (isFirstVisitToday()) {
-    clearLocalStorage();
-  }
-};
