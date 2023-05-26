@@ -378,7 +378,7 @@ let futureAnswers = [
 ];
 
 const today = new Date();
-const currentMonth = today.getMonth();
+const currentMonth = today.getMonth() + 1;
 const currentDay = today.getDate();
 
 let correctAnswer =
