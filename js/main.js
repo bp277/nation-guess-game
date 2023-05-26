@@ -374,14 +374,15 @@ let futureAnswers = [
   60, 92, 35, 78, 141, 114, 154, 106, 156, 95, 50, 180, 184, 31, 182, 69, 145,
   146, 169, 186, 122, 9, 66, 107, 120, 30, 113, 148, 127, 192, 8, 175, 34, 149,
   44, 155, 132, 86, 162, 91, 39, 172, 158, 188, 157, 119, 150, 144, 152, 176,
-  123,
+  123
 ];
 
 const today = new Date();
+const currentMonth = today.getMonth();
 const currentDay = today.getDate();
 
 let correctAnswer =
-  countryInfo[futureAnswers[currentDay % futureAnswers.length]];
+  countryInfo[futureAnswers[(currentMonth + currentDay) % futureAnswers.length]];
 
 // Get the number of milliseconds until midnight
 var timeUntilMidnight =
@@ -441,6 +442,3 @@ if (lostToday === "true") {
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
 }
-
-
-
