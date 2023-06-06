@@ -37,14 +37,18 @@ function userWonContent() {
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
   localStorage.setItem("wonToday", "true");
-}
+  setTimeout(function() {
+    scrollToTop();
+  }, 0);}
 
 function userLostContent() {
   status.textContent = "So Close...";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
   localStorage.setItem("lostToday", "true");
-}
+  setTimeout(function() {
+    scrollToTop();
+  }, 0);}
 
 for (let i = 0; i < allCountries.length; i++) {
   countryInfo.push([
@@ -441,4 +445,11 @@ if (lostToday === "true") {
   status.textContent = "So close...";
   correctName.textContent = correctAnswer[1];
   correctFlag.src = correctAnswer[0];
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 100,
+    behavior: 'smooth'
+  });
 }
