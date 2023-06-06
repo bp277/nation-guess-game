@@ -151,6 +151,7 @@ function selectCountryEnterKey(answ) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        scrollToTop()
         localStorage.setItem("inputDisabledPractice", true);
       } else if (answers.childNodes.length == 8) {
         backdrop.style.display = "flex";
@@ -158,6 +159,7 @@ function selectCountryEnterKey(answ) {
         correctName.textContent = correctAnswer[1];
         correctFlag.src = correctAnswer[0];
         input.disabled = true;
+        scrollToTop()
         localStorage.setItem("inputDisabledPractice", true);
       }
     }
@@ -376,4 +378,11 @@ answers.innerHTML = data;
 // Scroll to the last submitted answer on page load
 if (answers.childNodes.length > 1) {
   answers.scrollTo({ top: answers.scrollHeight, behavior: "smooth" });
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 100,
+    behavior: 'smooth'
+  });
 }
