@@ -460,6 +460,14 @@ main input {
   main input {
     width: 90%;
   }
+  
+  .image-wrapper {
+    overflow: hidden;
+  }
+
+  .backdrop-tutorial img {
+    width: 500px !important;
+  }
 
   .links {
     width: 100%;
