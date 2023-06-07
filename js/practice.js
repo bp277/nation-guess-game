@@ -145,7 +145,7 @@ function selectCountryEnterKey(answ) {
       );
 
       // Open modal and end the game when answer is correct or when the user exceeds the limited number of guesses
-      if (answ === correctAnswer[1]) {
+      if (answ == correctAnswer[1]) {
         backdrop.style.display = "flex";
         status.textContent = "You Win";
         correctName.textContent = correctAnswer[1];
