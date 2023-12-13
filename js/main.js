@@ -66,8 +66,16 @@ for (let i = 0; i < allCountries.length; i++) {
   countryInfo.sort();
 }
 
-//Searching and Submiting answer
-input.addEventListener("keyup", () => {
+function debounce(f, delay) {
+  let timeout;
+
+  return function() {
+    if(timeout) clearTimeout(timeout);
+    timeout = setTimeout(()=> f(), delay)
+  }
+}
+
+function searchAutocomplete(){
   // Creating list of search results
   const inputValue = input.value;
 
@@ -86,7 +94,10 @@ input.addEventListener("keyup", () => {
     });
     searchList.innerHTML = innerElement;
   }
-});
+}
+
+//Searching and Submiting answer
+input.addEventListener("keyup", debounce(searchAutocomplete, 500));
 
 function selectCountry(e) {
   for (let i = 0; i < countryInfo.length; i++) {
